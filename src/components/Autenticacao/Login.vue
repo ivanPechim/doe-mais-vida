@@ -1,37 +1,45 @@
 <template>
 	<div id="fundo">
-		<b-card class="card">
+		<div
+			class="bg-Color"
+		>
+			<b-row class="mb-5">
+				<b-col></b-col>
+				<b-col>Ajude o próximo!</b-col>
+			</b-row>
 			<b-form class="form">
 				<b-form-group>
 					<b-form-group 
 						label="Digite o seu usuário:"
 					>
-						<b-form-input>
+						<b-form-input
+							class="doe-input"
+						>
 						</b-form-input>
 					</b-form-group>
 					<b-form-group 
 						label="Digite sua senha:"
 					>
-						<b-input>
-						</b-input>
+						<b-form-input
+							class="doe-input"
+						
+						>
+						</b-form-input>
 					</b-form-group>
 					<b-button>
 						Entrar
 					</b-button>
 				</b-form-group>
+				<div class="footer-form">
+					<b-button>
+						Esqueceu a senha ?
+					</b-button>
+					<b-button>
+						Registrar-se
+					</b-button>
+				</div>
 			</b-form>
-			<b-card-footer
-				no-style 
-				class="footer"
-			>
-				<b-button>
-					Esqueceu a senha ?
-				</b-button>
-				<b-button>
-					Registrar-se
-				</b-button>
-			</b-card-footer>
-		</b-card>
+		</div>
 	</div>
 </template>
 
@@ -53,25 +61,27 @@ export default {
 	padding: 0;
 }
 
-#fundo {
-	width: 100%;
+.bg-Color {
+	background-color: rgb(225,235,245);
 }
 
-.card {
-	display: flex;
-	align-items: center;
-	justify-items: center;
-	border: 0;
-}
 
 .form {
-	margin: 1px solid black;
-	width: 25em;
-	height: 25em;
+	width: 40em;
+	height: 40em;
+	overflow: hidden;
 }
 
-.footer {
+#fundo {
+	width: 100%;
+	height: 100%;
 	display: flex;
-	justify-content: space-between	
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-form {
+	display: flex;
+	justify-content: space-between;
 }
 </style>
