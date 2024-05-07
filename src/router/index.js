@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Login from '../components/Autenticacao/Login.vue';
 import VueRouter from 'vue-router';
-import RecuperarConta from '../components/RecuperarConta'
-import CriacaoUsuario from '../components/CriacaoUsuario'
+import RecuperarConta from '../components/RecuperarConta.vue';
+import CriacaoUsuario from '../components/CriacaoUsuario.vue';
 
 
 Vue.use(VueRouter)
