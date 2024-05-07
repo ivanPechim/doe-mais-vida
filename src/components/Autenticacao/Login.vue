@@ -32,10 +32,10 @@
 				</b-form-group>
 				<div class="footer-form">
 					<b-button>
-						Esqueceu a senha ?
+						<router-link to="/RecuperarConta">Esqueceu a senha ?</router-link>
 					</b-button>
 					<b-button>
-						Registrar-se
+						<router-link to="/CriacaoUsuario">Registrar-se</router-link>
 					</b-button>
 				</div>
 			</b-form>
