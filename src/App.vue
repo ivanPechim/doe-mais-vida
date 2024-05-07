@@ -1,6 +1,7 @@
 <template>
   <div id="app">
 		<router-view />
+    <!-- Ivanzinho front-end -->
   </div>
 </template>
 
