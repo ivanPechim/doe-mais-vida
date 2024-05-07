@@ -10,7 +10,7 @@
 			<b-form class="form">
 				<b-form-group>
 					<b-form-group 
-						label="Digite o seu usuário:"
+						label="Digite o seu cliente:"
 					>
 						<b-form-input
 							class="doe-input"
