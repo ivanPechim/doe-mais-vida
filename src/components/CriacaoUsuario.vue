@@ -11,7 +11,7 @@ fo<template>
 				<b-col>
                 <br>
                 <br>
-                <br>Criação de Usuário</b-col>
+                <br>Criação de cliente</b-col>
 				<b-col></b-col>
 			</b-row>
             <hr>
