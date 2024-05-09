@@ -26,19 +26,23 @@
 
 						<div id="inputs-container">
 							<b-col role="group">
-								<label for="input-live"></label>
-								<b-form-input id="input-live" v-model="name" :state="nameState"
-									aria-describedby="input-live-help input-live-feedback" placeholder="Inserir e-mail"
-									trim></b-form-input>
+								
+								<b-row class="my-1">
+									<b-col md="8" offset-md="2">
+										<b-form-input class="custom-input" id="input-none" :state="null"
+											placeholder="Inserir número de telefone"></b-form-input>
+									</b-col>
+								</b-row>
 
 
-								<b-form-text id="input-live-help"></b-form-text>
+								<b-row class="my-1">
+									<b-col md="8" offset-md="2">
+										<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+											placeholder="Inserir senha"></b-form-input>
+									</b-col>
+								</b-row>
 
-								<!-- <label for="input-live"></label> -->
-								<b-form-input type="password" id="input-live" v-model="password" :state="passwordState"
-									aria-describedby="input-live-help input-live-feedback" placeholder="Inserir senha"
-									trim>
-								</b-form-input>
+								
 							</b-col>
 						</div>
 
@@ -79,7 +83,7 @@
 
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
-										<b-form-input class="custom-input" id="input-valid" :state="null"
+										<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
 											placeholder="Inserir senha"></b-form-input>
 									</b-col>
 								</b-row>
@@ -212,7 +216,7 @@ button {
 	margin-top: 50px;
 	width: 50%;
 	height: 90%;
-	background-color: violet;
+	/* background-color: violet; */
 }
 
 .informacoes-celular {
@@ -244,10 +248,6 @@ button {
 	margin-bottom: 10px;
 }
 
-.criar-conta {
-	/* margin-top: 5px */
-}
-
 .custom-input {
 	background-color: transparent !important;
 	border-color: white !important;
@@ -263,5 +263,5 @@ button {
 	margin-top: 20px;
 }
 
-.botoes-login {}
+
 </style>
