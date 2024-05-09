@@ -3,15 +3,15 @@
 
 		<div class="caixa-red">
 			<div class="logo">
-				<img
-					src="https://s3-alpha-sig.figma.com/img/8501/1dd5/a73ae3937112b166e926ef385c33c1b2?Expires=1716163200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=awZhkgqCwmLIUmOFDGAzPkBaB5MIBxUgbus2QYIIo6vIMl~cKy1h~SqWiHELbNZgGfT-~twlChRKHKLo9vqb0-kpKa5zcr3lDcHVaGT~DsmI52yp3AHXS483vX4Y1vbi2iynAlLIsrW4-SDykLfI~tAXfbUb410RIOFhjjlESWfcNfETzGSo1FdoMAo3feyCTtG5o~f~5KxeWUMZHO0sPiEHPVTZnDfCK3OhRWxySuQbe6cQNLEA3FzxHiqaX1WPtngzRF6WtyJT3ErLZkTPFUjCda4fEmgav9iB7kILtFLbW7Quko4u~9yPKf0gGSbm2DT~rDw7mPg2XGOSzE4E4Q__"
+				<img src="https://s3-alpha-sig.figma.com/img/8501/1dd5/a73ae3937112b166e926ef385c33c1b2?Expires=1716163200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=awZhkgqCwmLIUmOFDGAzPkBaB5MIBxUgbus2QYIIo6vIMl~cKy1h~SqWiHELbNZgGfT-~twlChRKHKLo9vqb0-kpKa5zcr3lDcHVaGT~DsmI52yp3AHXS483vX4Y1vbi2iynAlLIsrW4-SDykLfI~tAXfbUb410RIOFhjjlESWfcNfETzGSo1FdoMAo3feyCTtG5o~f~5KxeWUMZHO0sPiEHPVTZnDfCK3OhRWxySuQbe6cQNLEA3FzxHiqaX1WPtngzRF6WtyJT3ErLZkTPFUjCda4fEmgav9iB7kILtFLbW7Quko4u~9yPKf0gGSbm2DT~rDw7mPg2XGOSzE4E4Q__"
 					alt="Logo do projeto">
 			</div>
 			<div class="caixa-escura">
 				<div class="caixa-para-botoes">
 
 					<b-button key="botaoEmail" :variant="buttonVariant01" pill @click="changeColor(1)">E-mail</b-button>
-					<b-button key="botaoCelular" :variant="buttonVariant02" pill @click="changeColor(2)">Celular</b-button>
+					<b-button key="botaoCelular" :variant="buttonVariant02" pill
+						@click="changeColor(2)">Celular</b-button>
 
 				</div>
 
@@ -31,38 +31,30 @@
 									aria-describedby="input-live-help input-live-feedback" placeholder="Inserir e-mail"
 									trim></b-form-input>
 
-								<b-form-invalid-feedback id="input-live-feedback">
-									Enter at least 3 letters
-								</b-form-invalid-feedback>
 
 								<b-form-text id="input-live-help"></b-form-text>
 
-								<label for="input-live"></label>
+								<!-- <label for="input-live"></label> -->
 								<b-form-input type="password" id="input-live" v-model="password" :state="passwordState"
 									aria-describedby="input-live-help input-live-feedback" placeholder="Inserir senha"
-									trim></b-form-input>
+									trim>
+								</b-form-input>
 							</b-col>
 						</div>
 
 						<!-- botãoLogin -->
 						<b-container class="login">
-							<div>
-									<b-button variant="light">Entrar</b-button>
-							</div>
+								<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
 						</b-container>
 
 						<!-- botão criar conta -->
-						<b-container class="criar-conta">
-							<div>
-									<b-button variant="light">Criar conta</b-button>
-							</div>
+						<b-container>
+								<b-button variant="light" class="botao-padrao">Criar conta</b-button>
 						</b-container>
 
 						<!-- botão entrar com google -->
-						<b-container >
-							<div>
-									<b-button variant="light" class="botao-padrao">Entrar com Google</b-button>
-							</div>
+						<b-container>
+								<b-button variant="light" class="botao-padrao">Entrar com Google</b-button>
 						</b-container>
 
 					</div>
@@ -76,45 +68,41 @@
 
 						<div id="inputs-container">
 							<b-col role="group">
-								<label for="input-live"></label>
-								<b-form-input id="input-live" v-model="name" :state="nameState"
-									aria-describedby="input-live-help input-live-feedback" placeholder="Inserir número de celular"
-									trim></b-form-input>
 
-								<b-form-invalid-feedback id="input-live-feedback">
-									Enter at least 3 letters
-								</b-form-invalid-feedback>
+								<b-row class="my-1">
+									<b-col md="8" offset-md="2">
+										<b-form-input class="custom-input" id="input-none" :state="null"
+											placeholder="Inserir número de telefone"></b-form-input>
+									</b-col>
+								</b-row>
 
-								<b-form-text id="input-live-help"></b-form-text>
 
-								<label for="input-live"></label>
-								<b-form-input type="password" id="input-live" v-model="password" :state="passwordState"
-									aria-describedby="input-live-help input-live-feedback" placeholder="Inserir senha"
-									trim></b-form-input>
+								<b-row class="my-1">
+									<b-col md="8" offset-md="2">
+										<b-form-input class="custom-input" id="input-valid" :state="null"
+											placeholder="Inserir senha"></b-form-input>
+									</b-col>
+								</b-row>
 							</b-col>
 						</div>
 
-						<!-- botãoLogin -->
-						<b-container class="login">
-							<div>
-									<b-button variant="light">Entrar</b-button>
-							</div>
-						</b-container>
 
-						<!-- botão criar conta -->
-						<b-container class="criar-conta">
-							<div>
-									<b-button variant="light">Criar conta</b-button>
-							</div>
-						</b-container>
+						<div class="botoes-login">
+							<!-- botãoLogin -->
+							<b-container class="login">
+									<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
+							</b-container>
 
-						<!-- botão entrar com google -->
-						<b-container>
-							<div>
-									<b-button variant="light" class="botao-padrao">Entrar com Google</b-button>
-							</div>
-						</b-container>
+							<!-- botão criar conta -->
+							<b-container>
+								<b-button variant="light" class="botao-padrao">Criar conta</b-button>
+							</b-container>
 
+							<!-- botão entrar com google -->
+							<b-container>
+								<b-button variant="light" class="botao-padrao">Entrar com Google</b-button>
+							</b-container>
+						</div>
 					</div>
 				</b-container>
 			</div>
@@ -224,7 +212,7 @@ button {
 	margin-top: 50px;
 	width: 50%;
 	height: 90%;
-	/* background-color: violet; */
+	background-color: violet;
 }
 
 .informacoes-celular {
@@ -235,24 +223,45 @@ button {
 }
 
 .texto-h1 {
-	font-size: 24px;
+	font-size: 20px;
 	color: white;
 }
 
 #inputs-container {
-	margin-bottom: 20px;
+	margin-top: 30px;
+	/* margin-bottom: 5px; */
 	/* background-color: blue; */
 }
 
+.primeiro-botao-padrao {
+	margin-bottom: 10px;
+}
+
 .botao-padrao {
-	padding: 10px 20px;
-	font-size: 100px;
-	margin-top: 5px;
-	margin-bottom: 20px;
+	/* padding: 10px 20px; */
+	/* font-size: 100px; */
+	/* margin-top: 20px; */
+	margin-bottom: 10px;
 }
 
 .criar-conta {
-	margin-top: 5px
+	/* margin-top: 5px */
 }
 
+.custom-input {
+	background-color: transparent !important;
+	border-color: white !important;
+	color: white !important;
+}
+
+.custom-input::placeholder {
+	color: white !important;
+	/* define a cor do placeholder como branco */
+}
+
+.login {
+	margin-top: 20px;
+}
+
+.botoes-login {}
 </style>
