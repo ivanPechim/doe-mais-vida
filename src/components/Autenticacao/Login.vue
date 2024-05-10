@@ -30,7 +30,8 @@
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
 										<b-form-input class="custom-input" id="input-none" :state="null"
-											placeholder="Inserir número de telefone"></b-form-input>
+											placeholder="Inserir email">
+										</b-form-input>
 									</b-col>
 								</b-row>
 
@@ -58,7 +59,7 @@
 
 						<!-- botão entrar com google -->
 						<b-container>
-								<b-button variant="light" class="botao-padrao">Entrar com Google</b-button>
+								<b-button variant="light" class="botao-padrao img-google">Entrar com Google</b-button>
 						</b-container>
 
 					</div>
@@ -104,7 +105,7 @@
 
 							<!-- botão entrar com google -->
 							<b-container>
-								<b-button variant="light" class="botao-padrao">Entrar com Google</b-button>
+								<b-button variant="light" class="botao-padrao img-google" >Entrar com Google</b-button>
 							</b-container>
 						</div>
 					</div>
@@ -233,22 +234,25 @@ button {
 
 #inputs-container {
 	margin-top: 30px;
-	/* margin-bottom: 5px; */
-	/* background-color: blue; */
+	margin-bottom: 20px;
 }
 
 .primeiro-botao-padrao {
 	margin-bottom: 10px;
+	width: 340px;
+	height: 60px;
 }
 
 .botao-padrao {
-	/* padding: 10px 20px; */
-	/* font-size: 100px; */
-	/* margin-top: 20px; */
 	margin-bottom: 10px;
+	width: 340px;
+	height: 60px;
 }
 
 .custom-input {
+	width: 100% !important;
+	font-size: 18px !important;
+	margin-bottom: 8px;
 	background-color: transparent !important;
 	border-color: white !important;
 	color: white !important;
@@ -263,5 +267,12 @@ button {
 	margin-top: 20px;
 }
 
+.img-google {
+	background-image: url('https://s3-alpha-sig.figma.com/img/fc4c/d4bf/9bd6b92aac998d60dda3bda11e140640?Expires=1716163200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MjTJGgNXLAwLW0P946J2oAB1q4UrSP~GPrVM0cDoATTq4Iup3gwE7AUaJBDkATuXJ0WLdRSg5NLu3w8EjMr6HeUAHn07ohmtCC1JLCHnm751w3ydnxXZH3kFOJIWMY2eLGKnotDhR5wdxIEKezfzGI6mwIg9yfvDsyRLgaSv4vYkO-dO3l59EsnZYj4jRAr4TGGvYwGElc1BkmuJgg3PPBF-kioDDT9ctaBoQnjn6ByscheA0FwcrqfbA5xjGVD4yZcxhfUKy7ZQC2SCB44dChgn-rK5L17qL8viFpoqSo~JaYEGHbO4JsL1~2Hnqa691XaV61AOSZiHFZmgapYCoA__');
+	background-size: 50px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 30px;
 
+}
 </style>
