@@ -54,7 +54,9 @@
 
 						<!-- botão criar conta -->
 						<b-container>
+							<router-link to="/CadastroUsuario">
 								<b-button variant="light" class="botao-padrao">Criar conta</b-button>
+							</router-link>
 						</b-container>
 
 						<!-- botão entrar com google -->

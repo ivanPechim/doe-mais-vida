@@ -3,7 +3,7 @@ import Login from '../components/Autenticacao/Login.vue';
 import VueRouter from 'vue-router';
 import RecuperarConta from '../components/RecuperarConta.vue';
 import CriacaoUsuario from '../components/CriacaoUsuario.vue';
-
+import CadastroUsuario from '../components/Autenticacao/CadastroUsuario.vue';
 
 Vue.use(VueRouter)
 
@@ -13,6 +13,10 @@ const routes = [
     name: 'home',
     component: Login
   },
+	{
+		path: '/CadastroUsuario',
+		component: CadastroUsuario
+	},
   {
     path: '/CriacaoUsuario',
     component: CriacaoUsuario
