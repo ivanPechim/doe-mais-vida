@@ -1,15 +1,7 @@
 <template>
 	<div class="fudao">
 		<div class="cor-braca">
-			<div class="left-section">
-            <!-- Informações no canto esquerdo -->
-        </div>
-        <div class="middle-section">
-            <!-- Conteúdo central -->
-        </div>
-        <div class="right-section">
-            <!-- Logo no canto direito -->
-        </div>
+			
 		</div>
 	</div>
 </template>
