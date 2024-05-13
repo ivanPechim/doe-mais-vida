@@ -1,12 +1,18 @@
 <template>
-	<div class="fudao">
+	<div class="fundao">
 		<div class="cor-braca01">
+			<div class="div-botao">
+				<button class="botao-volta">
 
+				</button>
+			</div>
+			<div class="format-frases">
+					<h1>Criar uma conta</h1>
+					<h5>Insira os detalhes da sua conta</h5>
+			</div>
 		</div>
 		<div class="cor-branca02">
-			<div class="logo">
-				<img src="https://s3-alpha-sig.figma.com/img/8501/1dd5/a73ae3937112b166e926ef385c33c1b2?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fNKuBfDwl51NrD3U8J8lkc7cU66DyzLjJjNtY8A-Z7lxJXr24cVFc1FEQG6ujKjXVHwyKZ3m9-kmmFlO6fYt0-mLAH83D0hyp~vpbZ9yEk3PBG5akC0zg-dIr04qfxBJeJcG8BG-lWssThT3vv~zAvFkw0iLROmVN2YLjm3UA2Pyw2f4ft-a3tLJEJF3fGCUYE7U07t0iwZ2iw7kWLAWDc1hvfid~h9jgIYkFCtADp3ajZKlMMoOel9kTdkNwwW3uwdb6Vv32zwdbPtus3xyKdnBMuvZ8AyknOo-XymS68CmDWOUADxZoDVftLYnGlUp9nkqn2dKtaSM4CWt0fS5rA__" alt="Imagem">
-			</div>
+			<img class="logo" src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZKoaLpBs7nqpKlIquVnOSvNM-bJe78FmymgCOCguzrFfwIJwQjk9F6gu59udz8wbqB0ULTUlVRg9oRZWFsdhBUELgH3Oze3Ws=w1440-h731-rw-v1" alt="Imagem">
 		</div>
 	</div>
 </template>
@@ -22,7 +28,7 @@ export default {
 </script>
 
 <style>
-.fudao {
+.fundao {
 	background-color: red;
 	width: 100%;
 	height: 100vh;
@@ -45,10 +51,36 @@ export default {
 	height: 40%;
 	/* background: linear-gradient(to bottom left, blue 50%, transparent 50%); */
 
-	background: linear-gradient(-173deg, blue 70%, transparent 70%);
+	background: linear-gradient(-173deg, white 70%, transparent 70%);
+}
+
+.div-botao {
+	padding: 30px;
+	width: 20%;
+	height: 34%;
+	/* background-color: red; */
+	padding-left: 0;
+}
+
+.botao-volta {
+	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZzbM-uIb8_4nKlfC6CDUBm6a65ZDOf_PQ19mZOKGnh_HHR_VybzEqWwjsDYr9SP0izGPyEszeGrColHoAWCaercGOffbrzcQ=w1392-h778');
+	background-size: 35px;
+	background-repeat: no-repeat;
+	background-color: white;
 }
 
 .logo {
-
+	width: 50%;
+	height: 55%;
+	margin-top: 50px;
+	margin-left: 50px;
 }
+
+.format-frases {
+	padding: 10px;
+	/* padding-left: 0; */
+
+	color: red;
+}
+
 </style>

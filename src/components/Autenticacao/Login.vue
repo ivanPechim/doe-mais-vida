@@ -26,7 +26,7 @@
 
 						<div id="inputs-container">
 							<b-col role="group">
-								
+
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
 										<b-form-input class="custom-input" id="input-none" :state="null"
@@ -38,18 +38,18 @@
 
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
-										<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
-											placeholder="Inserir senha"></b-form-input>
+										<b-form-input type="password" class="custom-input" id="input-valid"
+											:state="null" placeholder="Inserir senha"></b-form-input>
 									</b-col>
 								</b-row>
 
-								
+
 							</b-col>
 						</div>
 
 						<!-- botãoLogin -->
 						<b-container class="login">
-								<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
+							<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
 						</b-container>
 
 						<!-- botão criar conta -->
@@ -61,7 +61,7 @@
 
 						<!-- botão entrar com google -->
 						<b-container>
-								<b-button variant="light" class="botao-padrao img-google">Entrar com Google</b-button>
+							<b-button variant="light" class="botao-padrao img-google">Entrar com Google</b-button>
 						</b-container>
 
 					</div>
@@ -86,8 +86,8 @@
 
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
-										<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
-											placeholder="Inserir senha"></b-form-input>
+										<b-form-input type="password" class="custom-input" id="input-valid"
+											:state="null" placeholder="Inserir senha"></b-form-input>
 									</b-col>
 								</b-row>
 							</b-col>
@@ -97,17 +97,19 @@
 						<div class="botoes-login">
 							<!-- botãoLogin -->
 							<b-container class="login">
-									<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
+								<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
 							</b-container>
 
 							<!-- botão criar conta -->
 							<b-container>
-								<b-button variant="light" class="botao-padrao">Criar conta</b-button>
+								<router-link to="/CadastroUsuario">
+									<b-button variant="light" class="botao-padrao">Criar conta</b-button>
+								</router-link>
 							</b-container>
 
 							<!-- botão entrar com google -->
 							<b-container>
-								<b-button variant="light" class="botao-padrao img-google" >Entrar com Google</b-button>
+								<b-button variant="light" class="botao-padrao img-google">Entrar com Google</b-button>
 							</b-container>
 						</div>
 					</div>
