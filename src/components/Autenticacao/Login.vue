@@ -116,7 +116,10 @@
 				</b-container>
 			</div>
 		</div>
-		<div class="caixa-white"></div>
+		
+		<div class="caixa-white">
+
+		</div>
 	</div>
 </template>
 
