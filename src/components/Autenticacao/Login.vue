@@ -49,7 +49,7 @@
 
 						<!-- botãoLogin -->
 						<b-container class="login">
-							<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
+							<router-link to="/Home"><b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button></router-link>
 						</b-container>
 
 						<!-- botão criar conta -->
@@ -103,7 +103,7 @@
 							<!-- botão criar conta -->
 							<b-container>
 								<router-link to="/CadastroUsuario">
-									<b-button variant="light" class="botao-padrao">Criar conta</b-button>
+									<router-link to="/Home"><b-button variant="light" class="botao-padrao">Criar conta</b-button></router-link>
 								</router-link>
 							</b-container>
 
