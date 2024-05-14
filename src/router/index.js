@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import RecuperarConta from '../components/RecuperarConta.vue';
 import CriacaoUsuario from '../components/CriacaoUsuario.vue';
 import CadastroUsuario from '../components/Autenticacao/CadastroUsuario.vue';
+import Home from '../components/Home.vue';
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,10 @@ const routes = [
   {
     path: '/RecuperarConta',
     component: RecuperarConta
+  },
+  {
+    path: '/Home',
+    component: Home
   },
 ]
 
