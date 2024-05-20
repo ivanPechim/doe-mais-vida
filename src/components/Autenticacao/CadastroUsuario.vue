@@ -1,179 +1,179 @@
 <template>
-  <div class="fundao">
-    <div class="cor-braca01">
-      <div class="div-botao-voltar">
-        <button class="botao-volta"></button>
-      </div>
-      <div class="format-frases">
-        <h1>Criar uma conta</h1>
-        <h5>Insira os detalhes da sua conta</h5>
-      </div>
-    </div>
-    <div class="cor-branca02">
-      <img
-        class="logo"
-        src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZKoaLpBs7nqpKlIquVnOSvNM-bJe78FmymgCOCguzrFfwIJwQjk9F6gu59udz8wbqB0ULTUlVRg9oRZWFsdhBUELgH3Oze3Ws=w1440-h731-rw-v1"
-        alt="Imagem"
-      />
-    </div>
+	<div class="fundao">
+		<div class="cor-braca01">
+			<div class="div-botao-voltar">
+				<button class="botao-volta"></button>
+			</div>
+			<div class="format-frases">
+				<h1>Criar uma conta</h1>
+				<h5>Insira os detalhes da sua conta</h5>
+			</div>
+		</div>
+		<div class="cor-branca02">
+			<img class="logo"
+				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZKoaLpBs7nqpKlIquVnOSvNM-bJe78FmymgCOCguzrFfwIJwQjk9F6gu59udz8wbqB0ULTUlVRg9oRZWFsdhBUELgH3Oze3Ws=w1440-h731-rw-v1"
+				alt="Imagem" />
+		</div>
 
-    <div class="form">
-      <form action="">
+		<div class="form">
+			<form action="">
 
 				<div id="inputs-container">
-							<b-col role="group">
+					<b-col role="group">
 
-								<b-row class="my-1">
-									<b-col md="8" offset-md="2">
-										<h3 class="nome-form">Nome Completo</h3>
-										<b-form-input type="text" class="custom-input" id="input-none" :state="null"
-											placeholder="Inserir email">
-										</b-form-input>
-									</b-col>
-								</b-row>
-
-
-								<b-row class="my-1">
-									<b-col md="8" offset-md="2">
-										<h3 class="nome-form">Celular</h3>
-										<b-form-input type="text" class="custom-input" id="input-valid"
-											:state="null" placeholder="Inserir senha"></b-form-input>
-									</b-col>
-								</b-row>
-
-								<b-row class="my-1">
-									<b-col md="8" offset-md="2">
-										<h3 class="nome-form">Email</h3>
-										<b-form-input type="text" class="custom-input" id="input-valid"
-											:state="null" placeholder="Inserir senha"></b-form-input>
-									</b-col>
-								</b-row>
-
-								<b-row class="my-1">
-									<b-col md="8" offset-md="2">
-										<h3 class="nome-form">Senha</h3>
-										<b-form-input type="password" class="custom-input" id="input-valid"
-											:state="null" placeholder="Inserir senha"></b-form-input>
-									</b-col>
-								</b-row>
-
-								<b-row class="my-1">
-									<b-col md="8" offset-md="2">
-										<h3>Confirmação senha</h3>
-										<b-form-input type="password" class="custom-input" id="input-valid"
-											:state="null" placeholder="Confirmar senha"></b-form-input>
-									</b-col>
-								</b-row>
-
+						<b-row class="my-1">
+							<b-col md="8" offset-md="2">
+								<h3 class="nome-form">Nome Completo</h3>
+								<b-form-input type="text" class="custom-input" id="input-none" :state="null"
+									placeholder="Inserir email">
+								</b-form-input>
 							</b-col>
+						</b-row>
+
+
+						<b-row class="my-1">
+							<b-col md="8" offset-md="2">
+								<h3 class="nome-form">Celular</h3>
+								<b-form-input type="text" class="custom-input" id="input-valid" :state="null"
+									placeholder="Inserir senha"></b-form-input>
+							</b-col>
+						</b-row>
+
+						<b-row class="my-1">
+							<b-col md="8" offset-md="2">
+								<h3 class="nome-form">Email</h3>
+								<b-form-input type="text" class="custom-input" id="input-valid" :state="null"
+									placeholder="Inserir senha"></b-form-input>
+							</b-col>
+						</b-row>
+
+						<b-row class="my-1">
+							<b-col md="8" offset-md="2">
+								<h3 class="nome-form">Senha</h3>
+								<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+									placeholder="Inserir senha"></b-form-input>
+							</b-col>
+						</b-row>
+
+						<b-row class="my-1">
+							<b-col md="8" offset-md="2">
+								<h3 class="nome-form">Confirmação senha</h3>
+								<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+									placeholder="Confirmar senha">
+								</b-form-input>
+							</b-col>
+						</b-row>
+
+						<div class="div-botao">
+							<button class="botao-avancar">Avançar</button>
 						</div>
 
-
-				<div class="botao-avancar">
-					<b-container class="avancar">
-						<button>Avançar</button>
-					</b-container>
+					</b-col>
 				</div>
-      </form>
-    </div>
-  </div>
+			</form>
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {};
-  }
+	data() {
+		return {};
+	}
 };
 </script>
 
 <style>
 .fundao {
-  background-color: #e53a3a;
-  width: 100%;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
+	background-color: #e53a3a;
+	width: 100%;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
 }
 
 .cor-braca01 {
-  width: 70%;
-  height: 32%;
-  background-color: white;
-  background: linear-gradient(177deg, white 70%, transparent 70%);
+	width: 70%;
+	height: 32%;
+	background-color: white;
+	background: linear-gradient(177deg, white 70%, transparent 70%);
 }
 
 .cor-branca02 {
-  flex: 1;
-  height: 32%;
-  background: linear-gradient(-173deg, white 70%, transparent 70%);
+	flex: 1;
+	height: 32%;
+	background: linear-gradient(-173deg, white 70%, transparent 70%);
 }
 
 .div-botao-voltar {
-  padding: 28px;
-  width: 20%;
-  height: 42%;
-  padding-left: 0;
+	padding: 28px;
+	width: 20%;
+	height: 42%;
+	padding-left: 0;
 }
 
 .botao-volta {
-  background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZzbM-uIb8_4nKlfC6CDUBm6a65ZDOf_PQ19mZOKGnh_HHR_VybzEqWwjsDYr9SP0izGPyEszeGrColHoAWCaercGOffbrzcQ=w1392-h778');
-  background-size: 35px;
-  background-repeat: no-repeat;
-  background-color: white;
+	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZzbM-uIb8_4nKlfC6CDUBm6a65ZDOf_PQ19mZOKGnh_HHR_VybzEqWwjsDYr9SP0izGPyEszeGrColHoAWCaercGOffbrzcQ=w1392-h778');
+	background-size: 35px;
+	background-repeat: no-repeat;
+	background-color: white;
 }
 
 .logo {
-  width: 50%;
-  height: 65%;
-  margin-top: 20px;
-  margin-left: 70px;
+	width: 50%;
+	height: 65%;
+	margin-top: 20px;
+	margin-left: 70px;
 }
 
 .format-frases {
-  padding-left: 30px;
-  text-align: left;
-  color: red;
+	padding-left: 30px;
+	text-align: left;
+	color: red;
 }
 
 .form {
-  color: white;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 30%;
-  display: flex;
-  flex-direction: column;
+	color: white;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 30%;
+	display: flex;
+	flex-direction: column;
 }
 
-.input-group {
-  margin-bottom: 5px;
-}
+/* .input-group {
+	margin-bottom: 5px;
+} */
 
 .nome-form {
-  margin-bottom: 5px;
+	margin-bottom: 10px;
 	text-align: left;
 	width: 100%;
 	font-size: 20px;
 }
 
 input {
-  width: 500px;
-  height: 50px;
-  border-radius: 5px;
-  border: white;
-  padding: 0 15px;
+	width: 500px;
+	height: 50px;
+	border-radius: 5px;
+	border: white;
+	padding: 0 15px;
 }
 
-button{
+.div-botao {
+	margin-bottom: 30px;
+}
+
+.botao-avancar {
 	padding-top: 20px;
-	width: 90%;
-	height: 100px;
+	width: 65%;
+	height: 80px;
 	border: none;
 	color: white;
 	background-color: #952626;
+	border-radius: 10px !important;
 }
-
 </style>
