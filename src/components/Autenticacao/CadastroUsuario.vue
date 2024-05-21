@@ -2,7 +2,7 @@
 	<div class="fundao">
 		<div class="cor-braca01">
 			<div class="div-botao-voltar">
-				<button class="botao-volta"></button>
+				<button class="botao-volta" @click="voltarPagina"></button>
 			</div>
 			<div class="format-frases">
 				<h1>Criar uma conta</h1>
@@ -78,7 +78,11 @@
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			voltarPagina() {
+				this.$router.go(-1);
+			}
+		};
 	}
 };
 </script>
@@ -122,9 +126,9 @@ export default {
 }
 
 .logo {
-	width: 50%;
-	height: 65%;
-	margin-top: 20px;
+	width: 35%;
+	height: 50%;
+	margin-top: 30px;
 	margin-left: 70px;
 }
 
@@ -164,16 +168,15 @@ input {
 }
 
 .div-botao {
-	margin-bottom: 30px;
+	margin-top: 20px;
 }
 
 .botao-avancar {
-	padding-top: 20px;
 	width: 65%;
 	height: 80px;
 	border: none;
 	color: white;
 	background-color: #952626;
-	border-radius: 10px !important;
+	border-radius: 5px !important;
 }
 </style>
