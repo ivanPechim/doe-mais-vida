@@ -1,4 +1,4 @@
-fo<template>
+<template>
 	<div id="fundo">
 		<div class="bg-Color">
             <div class="azul">
@@ -82,7 +82,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 * {
 	margin: 0;
 	padding: 0;

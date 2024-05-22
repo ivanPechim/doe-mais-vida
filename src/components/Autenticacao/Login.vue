@@ -128,7 +128,7 @@ export default {
 	name: "LoginLogar",
 	data() {
 		return {
-			buttonVariant01: 'light',
+			buttonVariant01: 'danger',
 			buttonVariant02: 'light',
 			name: '',
 			nameState: null,
