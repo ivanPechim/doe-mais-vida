@@ -21,13 +21,13 @@
 							<b-col role="group">
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
-										<b-form-input class="custom-input" id="input-none" :state="null"
+										<b-form-input class="custom-input" id="input-none" :state="null" v-model="infoLogin.user"
 											placeholder="Inserir email"></b-form-input>
 									</b-col>
 								</b-row>
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
-										<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+										<b-form-input type="password" class="custom-input" id="input-valid" :state="null" v-model="infoLogin.password"
 											placeholder="Inserir senha"></b-form-input>
 									</b-col>
 								</b-row>
@@ -35,7 +35,7 @@
 						</div>
 						<b-container class="login">
 							<router-link to="/Home">
-								<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
+								<b-button variant="light" class="primeiro-botao-padrao" @click="teste">Entrar</b-button>
 							</router-link>
 						</b-container>
 						<b-container>
@@ -73,7 +73,7 @@
 						</div>
 						<div class="botoes-login">
 							<b-container class="login">
-								<b-button variant="light" class="primeiro-botao-padrao">Entrar</b-button>
+								<b-button variant="light" class="primeiro-botao-padrao" @click="teste">Entrar</b-button>
 							</b-container>
 							<b-container>
 								<router-link to="/CadastroUsuario">
@@ -101,6 +101,10 @@ export default {
 	name: "LoginLogar",
 	data() {
 		return {
+			infoLogin: {
+				user: null,
+				password: null
+			},
 			buttonVariant01: 'light',
 			buttonVariant02: 'light',
 			name: '',
@@ -110,6 +114,9 @@ export default {
 		}
 	},
 	methods: {
+		teste() {
+			console.log(this.infoLogin);
+		},
 		changeColor(buttonNumber) {
 			if (buttonNumber === 1) {
 				this.buttonVariant01 = 'danger';
@@ -244,5 +251,4 @@ button {
 	color: white;
 	text-align: left;
 }
-
 </style>
