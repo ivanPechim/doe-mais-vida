@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import RecuperarConta from '../components/RecuperarConta.vue';
 import CriacaoUsuario from '../components/CriacaoUsuario.vue';
 import CadastroUsuario from '../components/Autenticacao/CadastroUsuario.vue';
+import RecuperaConta from '../components/Autenticacao/RecuperaConta.vue';
 import Home from '../components/Home.vue';
 
 Vue.use(VueRouter)
@@ -20,6 +21,10 @@ const routes = [
 	{
 		path: '/CadastroUsuario',
 		component: CadastroUsuario
+	},
+	{
+		path: '/RecuperaConta',
+		component: RecuperaConta
 	},
   {
     path: '/CriacaoUsuario',
