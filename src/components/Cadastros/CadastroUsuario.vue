@@ -87,7 +87,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .fundao {
 	background-color: #e53a3a;
 	width: 100%;
@@ -140,7 +140,7 @@ export default {
 
 .form {
 	color: white;
-	width: 100%;
+	width: 50%;
 	height: 100vh;
 	position: absolute;
 	top: 30%;

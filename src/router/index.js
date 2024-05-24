@@ -3,8 +3,8 @@ import Login from '../components/Autenticacao/Login.vue';
 import VueRouter from 'vue-router';
 import RecuperarConta from '../components/RecuperarConta.vue';
 import CriacaoUsuario from '../components/CriacaoUsuario.vue';
-import CadastroUsuario from '../components/Autenticacao/CadastroUsuario.vue';
-import RecuperaConta from '../components/Autenticacao/RecuperaConta.vue';
+import CadastroUsuario from '../components/Cadastros/CadastroUsuario.vue';
+import RecuperaConta from '../components/Cadastros/RecuperaConta.vue';
 import Home from '../components/Home.vue';
 
 Vue.use(VueRouter)
