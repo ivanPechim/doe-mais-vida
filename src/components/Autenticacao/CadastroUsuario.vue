@@ -87,7 +87,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fundao {
 	background-color: #e53a3a;
 	width: 100%;

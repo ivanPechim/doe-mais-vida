@@ -101,10 +101,6 @@ export default {
 	name: "LoginLogar",
 	data() {
 		return {
-			infoLogin: {
-				user: null,
-				password: null
-			},
 			buttonVariant01: 'light',
 			buttonVariant02: 'light',
 			name: '',
