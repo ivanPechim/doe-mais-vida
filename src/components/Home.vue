@@ -33,7 +33,7 @@
 					<b-col>HISTORIAS DE USUARIOS</b-col>
 				</b-row>
 				<h3 class="texto">Júlia Figueiredo ✅<br>
-					<h10 class="texto2">🕗6m ago 📍Hemominas</h10>
+					<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
 				</h3><br>
 	
 				<p>
@@ -45,7 +45,7 @@
 					at its layout. the point of using Lorem
 				</p>
 				<h3 class="texto">Ana Paula ✅<br>
-					<h10 class="texto2">🕗6m ago 📍Hemominas</h10>
+					<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
 				</h3><br>
 	
 				<p class="texto2">

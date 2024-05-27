@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Login from '../components/Autenticacao/Login.vue';
+import Login from '../components/Cadastros/Login.vue';
 import VueRouter from 'vue-router';
 import RecuperarConta from '../components/RecuperarConta.vue';
 import CriacaoUsuario from '../components/CriacaoUsuario.vue';

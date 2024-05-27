@@ -1,20 +1,14 @@
 <template>
   <div class="tela-cheia">
-    <div class="primeiro-branco">
-			<div class="div-botao-voltar">
-				<button class="botao-volta" @click="voltarPagina"></button>
-			</div>
-			<div class="format-frases">
-				<h1>Criar uma conta</h1>
-				<h5>Insira os detalhes da sua conta</h5>
-			</div>
-		</div>
-		<div class="segundo-branco">
-			<img class="logo"
-				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZKoaLpBs7nqpKlIquVnOSvNM-bJe78FmymgCOCguzrFfwIJwQjk9F6gu59udz8wbqB0ULTUlVRg9oRZWFsdhBUELgH3Oze3Ws=w1440-h731-rw-v1"
-				alt="Imagem" />
-		</div>
+		<img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihYixnn4eaGcvmb8GPHBKGDDU0WWry9IdLgmQmmRMoo5zPQ6L6w67UXrOHyqbph3MTeUgM5TlIaiJuHqoohY8gFRolxn01CMLxc=w1872-h958" alt="Logo Doação">
+    <div class="vemelho-fundo">
+			<div class="caixa-vermelho-escuro">
 
+			</div>
+		</div>
+		<div class="branco-fundo">
+
+		</div>
 		
   </div>
 </template>
@@ -36,25 +30,46 @@ export default {
 <style>
 
 .tela-cheia {
-	width: 100%;
+	display: flex;
+	width: 100vw;
 	height: 100vh;
-	background-color: red;
 	padding: 0;
 	margin: 0;
-	display: flex;
+	background-color: violet;
+	flex-direction: column;
 }
 
-.primeiro-branco {
-	width: 70%;
-	height: 32%;
-	background-color: white;
-	background: linear-gradient(177deg, white 70%, transparent 70%);
-}
-
-.segundo-branco {
+.vemelho-fundo {
+	padding-top: 50px;
+	width: 100%;
+	height: 75vh;
+	background-color: #E53A3A;
 	flex: 1;
-	height: 32%;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto 50px auto;
+	padding-top: 30px;
+}
+
+.branco-fundo {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 25vh;
 	background-color: white;
-	background: linear-gradient(-173deg, white 70%, transparent 70%);
+}
+
+
+.caixa-vermelho-escuro {
+	padding: 30px;
+	margin: auto;
+	position: relative;
+	background-color: #952626;
+	width: 95%;
+	height: 100%;
+	border-radius: 15px;
 }
 </style>

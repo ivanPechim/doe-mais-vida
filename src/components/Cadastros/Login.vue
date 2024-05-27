@@ -13,6 +13,9 @@
 				</div>
 
 				<b-container class="tudao">
+					<form action="">
+
+					</form>
 					<div v-if="buttonVariant01 === 'danger'" class="informacoes-email">
 						<div>
 							<h1 class="texto-h1">Cadastrar conta com o meu email</h1>
@@ -27,15 +30,15 @@
 								</b-row>
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
-										<b-form-input type="password" class="custom-input" id="input-valid" :state="null" v-model="infoLogin.password"
-											placeholder="Inserir senha"></b-form-input>
+										<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+											v-model="infoLogin.password" placeholder="Inserir senha"></b-form-input>
 									</b-col>
 								</b-row>
 							</b-col>
 						</div>
 						<b-container class="login">
 							<router-link to="/Home">
-								<b-button variant="light" class="primeiro-botao-padrao" @click="teste">Entrar</b-button>
+								<b-button variant="light" class="primeiro-botao-padrao" @click="loginData = teste()">Entrar</b-button>
 							</router-link>
 						</b-container>
 						<b-container>
@@ -47,9 +50,11 @@
 							<b-button variant="light" class="botao-padrao img-google">Entrar com Google</b-button>
 						</b-container>
 						<router-link to="/RecuperaConta">
-							<a href="" class="link-conta">Recuperar conta</a>
+							<a href="" class="link-conta">Esqueci minha senha</a>
 						</router-link>
 					</div>
+
+
 
 					<div v-if="buttonVariant02 === 'danger'" class="informacoes-celular">
 						<div>
@@ -73,7 +78,9 @@
 						</div>
 						<div class="botoes-login">
 							<b-container class="login">
-								<b-button variant="light" class="primeiro-botao-padrao" @click="teste">Entrar</b-button>
+								<router-link to="/home">
+									<b-button variant="light" class="primeiro-botao-padrao" @click="loginData = teste()">Entrar</b-button>
+								</router-link>
 							</b-container>
 							<b-container>
 								<router-link to="/CadastroUsuario">
@@ -84,7 +91,7 @@
 								<b-button variant="light" class="botao-padrao img-google">Entrar com Google</b-button>
 							</b-container>
 							<router-link to="/RecuperaConta">
-								<a href="" class="link-conta">Recuperar conta</a>
+								<a href="" class="link-conta">Esqueci minha senha</a>
 							</router-link>
 						</div>
 					</div>
@@ -97,6 +104,8 @@
 </template>
 
 <script>
+// import axios from 'axios';
+
 export default {
 	name: "LoginLogar",
 	data() {
@@ -105,24 +114,70 @@ export default {
 			buttonVariant02: 'light',
 			name: '',
 			nameState: null,
-			password: '',
-			passwordState: null
+			infoLogin: {
+				user: '',
+				password: '',
+				passwordState: null
+			},
+			loginData: ''
 		}
 	},
 	methods: {
 		teste() {
-			console.log(this.infoLogin);
-		},
-		changeColor(buttonNumber) {
-			if (buttonNumber === 1) {
-				this.buttonVariant01 = 'danger';
-				this.buttonVariant02 = 'light';
-			} else if (buttonNumber === 2) {
-				this.buttonVariant01 = 'light';
-				this.buttonVariant02 = 'danger';
-			}
+			// this.loginData = JSON.stringify({
+			// 	email: this.infoLogin.user,
+			// 	senha: this.infoLogin.password
+			// });
+			// console.log(this.loginData)
+
+			// const email = this.infoLogin.user;
+			// const senha = this.infoLogin.password;
+
+			// axios.post('http://localhost:8080/', {
+			// 	email: email,
+			// 	senha: senha
+			// })
+			// .then(response => {
+			// 	console.log(response.data);
+			// })
+			// .catch(error => {
+			// 	console.log('Erro ao enviar solicitação: ', error)
+			// });
+
+			fetch("http://localhost:8080/", {
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify({
+					email: this.infoLogin.user,
+					senha: this.infoLogin.password
+				})
+				})
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Erro ao enviar solicitação');
+				}
+				return response.json();
+			})
+			.then(data => {
+				console.log(data)
+			})
+			.catch(error => {
+				console.log('Erro ao enviar solicitação: ', error);
+			})
+
+	},
+	changeColor(buttonNumber) {
+		if (buttonNumber === 1) {
+			this.buttonVariant01 = 'danger';
+			this.buttonVariant02 = 'light';
+		} else if (buttonNumber === 2) {
+			this.buttonVariant01 = 'light';
+			this.buttonVariant02 = 'danger';
 		}
 	}
+}
 }
 </script>
 
