@@ -148,9 +148,6 @@ export default {
 	flex-direction: column;
 }
 
-/* .input-group {
-	margin-bottom: 5px;
-} */
 
 .nome-form {
 	margin-bottom: 10px;

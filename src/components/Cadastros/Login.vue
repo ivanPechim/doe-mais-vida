@@ -99,12 +99,14 @@
 				</b-container>
 			</div>
 		</div>
-		<div class="caixa-white"></div>
+		<div class="caixa-white">
+			
+		</div>
 	</div>
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 
 export default {
 	name: "LoginLogar",
@@ -116,56 +118,48 @@ export default {
 			nameState: null,
 			infoLogin: {
 				user: '',
-				password: '',
-				passwordState: null
-			},
-			loginData: ''
+				password: ''
+			}
 		}
 	},
 	methods: {
 		teste() {
-			// this.loginData = JSON.stringify({
-			// 	email: this.infoLogin.user,
-			// 	senha: this.infoLogin.password
-			// });
-			// console.log(this.loginData)
+			const email = this.infoLogin.user;
+			const senha = this.infoLogin.password;
 
-			// const email = this.infoLogin.user;
-			// const senha = this.infoLogin.password;
-
-			// axios.post('http://localhost:8080/', {
-			// 	email: email,
-			// 	senha: senha
-			// })
-			// .then(response => {
-			// 	console.log(response.data);
-			// })
-			// .catch(error => {
-			// 	console.log('Erro ao enviar solicitação: ', error)
-			// });
-
-			fetch("http://localhost:8080/", {
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				method: 'POST',
-				body: JSON.stringify({
-					email: this.infoLogin.user,
-					senha: this.infoLogin.password
-				})
-				})
-				.then(response => {
-					if (!response.ok) {
-						throw new Error('Erro ao enviar solicitação');
-				}
-				return response.json();
+			axios.post('http://localhost:8080/', {
+				email: email,
+				senha: senha
 			})
-			.then(data => {
-				console.log(data)
+			.then(response => {
+				console.log(response.data);
 			})
 			.catch(error => {
-				console.log('Erro ao enviar solicitação: ', error);
-			})
+				console.log('Erro ao enviar solicitação: ', error)
+			});
+
+			// fetch("http://localhost:8080/", {
+			// 	headers: {
+			// 		'Content-Type': 'application/json'
+			// 	},
+			// 	method: 'POST',
+			// 	body: JSON.stringify({
+			// 		email: this.infoLogin.user,
+			// 		senha: this.infoLogin.password
+			// 	})
+			// 	})
+			// 	.then(response => {
+			// 		if (!response.ok) {
+			// 			throw new Error('Erro ao enviar solicitação');
+			// 	}
+			// 	return response.json();
+			// })
+			// .then(data => {
+			// 	console.log(data)
+			// })
+			// .catch(error => {
+			// 	console.log('Erro ao enviar solicitação: ', error);
+			// })
 
 	},
 	changeColor(buttonNumber) {

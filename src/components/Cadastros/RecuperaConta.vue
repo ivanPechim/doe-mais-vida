@@ -3,7 +3,19 @@
 		<img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihYixnn4eaGcvmb8GPHBKGDDU0WWry9IdLgmQmmRMoo5zPQ6L6w67UXrOHyqbph3MTeUgM5TlIaiJuHqoohY8gFRolxn01CMLxc=w1872-h958" alt="Logo Doação">
     <div class="vemelho-fundo">
 			<div class="caixa-vermelho-escuro">
+				<form action="">
+					<b-row>
+						<b-col md="8" offset-md="2">
+							<h3>Redefinir senha</h3>
+							<b-form-input type="text" class="custom-input" id="input-valid" :state="null"
+									placeholder="Inserir senha">Email/Telefone</b-form-input>
+						</b-col>
+					</b-row>
 
+					<div>
+						<button class="botao-proximo">Próximo</button>
+					</div>
+				</form>
 			</div>
 		</div>
 		<div class="branco-fundo">
@@ -35,12 +47,12 @@ export default {
 	height: 100vh;
 	padding: 0;
 	margin: 0;
-	background-color: violet;
+	background-color: #E53A3A;
 	flex-direction: column;
 }
 
 .vemelho-fundo {
-	padding-top: 50px;
+	padding-top: 20px;
 	width: 100%;
 	height: 75vh;
 	background-color: #E53A3A;
@@ -50,8 +62,7 @@ export default {
 img {
 	width: 100px;
 	height: 100px;
-	margin: 0 auto 50px auto;
-	padding-top: 30px;
+	margin: 45px auto 50px auto;
 }
 
 .branco-fundo {
@@ -71,5 +82,12 @@ img {
 	width: 95%;
 	height: 100%;
 	border-radius: 15px;
+	justify-content: center;
+}
+
+input {
+	width: 50px;
+	height: 50px;
+	padding: 0 15px;
 }
 </style>
