@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Agendamento</title>
+</head>
+<body>
+    
+
+    <header>
+        <button class="requisitos">Requisitos Básicos para Doação</button>
+    </header>
+
+    <div class="_municipio_">
+        <h1>Município</h1>
+        <label for="municipio"></label>
+        <select name="municipio" id="municipio" required>
+            <option value="">Inserir um município</option>
+            <option value="alem_da_paraiba">Alem da Paraíba</option>
+            <option value="belo_horizonte">Belo Horizonte</option>
+            <option value="betim">Betim</option>
+            <option value="diamantina">Diamantina</option>
+            <option value="divinopolis">Divinópolis</option>
+            <option value="governador_valadares">Governador Valadares</option>
+            <option value="ituiutaba">Ituiutaba</option>
+            <option value="juiz_de_fora">Juiz de Fora</option>
+            <option value="manhuacu">Manhuaçu</option>
+            <option value="montes_claros">Montes Claros</option>
+            <option value="passos">Passos</option>
+            <option value="patos_de_minas">Patos de Minas</option>
+            <option value="ponte_nova">Ponte Nova</option>
+            <option value="pouso_alegre">Pouso Alegre</option>
+            <option value="pocos_de_caldas">Poços de Caldas</option>
+            <option value="sete_lagoas">Sete Lagoas</option>
+            <option value="sao_joao_del_rei">São João Del Rei</option>
+            <option value="uberaba">Uberaba</option>
+            <option value="uberlandia">Uberlândia</option>
+        </select>
+    </div>
+
+    <div class="_unidade_">
+        <h1>Unidade de Atendimento</h1>
+        <label for="unidade"></label>
+        <select name="unidade" id="unidade" required>
+            <option value="">Inserir uma unidade</option>
+        </select>
+    </div>
+
+
+    <div class="_data_">
+        <h1>Data de Agendamento</h1>
+        <label for="data">Escolha o dia:</label>
+        <input type="date" id="data" name="data" required>
+    </div>
+
+    <div class="_horario_">
+        <h1>Horário de Atendimento</h1>
+        <label for="horario"></label>
+        <select name="horario" id="horario" required>
+            <option value="">Selecione um Horário</option>
+            <option value="">08:00</option>
+            <option value="">08:30</option>
+            <option value="">09:00</option>
+            <option value="">09:30</option>
+            <option value="">10:00</option>
+            <option value="">10:30</option>
+            <option value="">11:00</option>
+            <option value="">11:30</option>
+            <option value="">13:00</option>
+            <option value="">13:40</option>
+            <option value="">14:00</option>
+            <option value="">14:40</option>
+            <option value="">15:00</option>
+            <option value="">15:40</option>
+            <option value="">16:00</option>
+            <option value="">16:40</option>
+            <option value="">17:00</option>
+
+        </select>
+    </div>
+
+    <div class="_nome_">
+        <h1>Nome</h1>
+        <label for="nome">Inserir nome</label>
+        <input type="nome" id="nome" name="nome" required></input>
+    </div>
+
+    <div class="_cpf_">
+        <h1>CPF</h1>
+        <label for="cpf">Inserir CPF</label>
+        <input type="cpf" id="cpf" name="cpf" required></input>
+    </div>
+    
+    <div class="_email_">
+        <h1>Email</h1>
+        <label for="email">Inserir Email</label>
+        <input type="email" id="email" name="email" required></input>
+    </div>
+
+    <div class="_data_nascimento_">
+        <h1>Data de Nascimento</h1>
+        <input type="date" id="data_nascimento" name="data_nascimento" required>
+    </div>
+
+    <div class="_telefone_">
+        <h1>Telefone/Celular</h1>
+        <label for="telefone">Inserir telefone ou celular</label>
+        <input type="teleone" id="telefone" name="telefone" required></input>
+    </div>
+    
+
+   <button class="confirmar">Confirmar Agendamento</button>
+
+
+</body>
+</html>
