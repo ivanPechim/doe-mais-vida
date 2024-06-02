@@ -37,9 +37,7 @@
 							</b-col>
 						</div>
 						<b-container class="login">
-							<router-link to="/Home">
-								<b-button variant="light" class="primeiro-botao-padrao" @click="loginData = teste()">Entrar</b-button>
-							</router-link>
+							<b-button variant="light" class="primeiro-botao-padrao" @click="teste">Entrar</b-button>
 						</b-container>
 						<b-container>
 							<router-link to="/CadastroUsuario">
@@ -124,18 +122,13 @@ export default {
 	},
 	methods: {
 		teste() {
-			// this.loginData = JSON.stringify({
-			// 	email: this.infoLogin.user,
-			// 	senha: this.infoLogin.password
-			// });
-			// console.log(this.loginData)
 
 			// const email = this.infoLogin.user;
 			// const senha = this.infoLogin.password;
 
 			// axios.post('http://localhost:8080/', {
-			// 	email: email,
-			// 	senha: senha
+			// 	email: this.infoLogin.user,
+			// 	senha: this.infoLogin.password
 			// })
 			// .then(response => {
 			// 	console.log(response.data);
@@ -166,7 +159,6 @@ export default {
 			.catch(error => {
 				console.log('Erro ao enviar solicitação: ', error);
 			})
-
 	},
 	changeColor(buttonNumber) {
 		if (buttonNumber === 1) {
