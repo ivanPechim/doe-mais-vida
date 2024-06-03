@@ -6,6 +6,8 @@ import CriacaoUsuario from '../components/CriacaoUsuario.vue';
 import CadastroUsuario from '../components/Cadastros/CadastroUsuario.vue';
 import RecuperaConta from '../components/Cadastros/RecuperaConta.vue';
 import Home from '../components/Home.vue';
+import Agendamentos from '../components/Agendamentos/AgendamentosTela.vue';
+
 
 Vue.use(VueRouter)
 
@@ -30,6 +32,10 @@ const routes = [
   {
     path: '/CriacaoUsuario',
     component: CriacaoUsuario
+  },
+  {
+    path: '/agendamentos',
+    component: Agendamentos
   },
   {
     path: '/RecuperarConta',

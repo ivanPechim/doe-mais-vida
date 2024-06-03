@@ -37,7 +37,9 @@
 							</b-col>
 						</div>
 						<b-container class="login">
-								<b-button variant="light" class="primeiro-botao-padrao" @click="entrarApi">Entrar</b-button>
+							<router-link to="/Home">
+								<b-button variant="light" class="primeiro-botao-padrao" @click="loginData = teste()">Entrar</b-button>
+							</router-link>
 						</b-container>
 						<b-container>
 							<router-link to="/CadastroUsuario">
@@ -119,39 +121,43 @@ export default {
 		}
 	},
 	methods: {
-		entrarApi() {
-			if(!this.infoLogin.user || !this.infoLogin.password) {
-				alert('Por favor, preencha todos os campos antes de prosseguir!');
-				return
-			}
+		teste() {
+			const email = this.infoLogin.user;
+			const senha = this.infoLogin.password;
 
-			fetch("http://localhost:8090/users/login", {
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				method: 'POST',
-				body: JSON.stringify({
-					emailOrPhone: this.infoLogin.user,
-					password: this.infoLogin.password
-				})
+			axios.post('http://localhost:8080/', {
+				email: email,
+				senha: senha
 			})
-				.then(response => {
-					if (!response.ok) {
-						if(response === 400) {
-							alert('Usuário ou senha incorretos. Por favor, tente novamente.');
-						} else {
-							throw new Error('Erro ao enviar solicitação');
-						}
-					}
-					return response.json();
-				})
-				.then(data => {
-					console.log(data);
-					this.$router.push('/Home');
-				})
-				.catch(error => {
-					console.log('Erro ao enviar solicitação: ', error);
-				})
+			.then(response => {
+				console.log(response.data);
+			})
+			.catch(error => {
+				console.log('Erro ao enviar solicitação: ', error)
+			});
+
+			// fetch("http://localhost:8080/", {
+			// 	headers: {
+			// 		'Content-Type': 'application/json'
+			// 	},
+			// 	method: 'POST',
+			// 	body: JSON.stringify({
+			// 		email: this.infoLogin.user,
+			// 		senha: this.infoLogin.password
+			// 	})
+			// 	})
+			// 	.then(response => {
+			// 		if (!response.ok) {
+			// 			throw new Error('Erro ao enviar solicitação');
+			// 	}
+			// 	return response.json();
+			// })
+			// .then(data => {
+			// 	console.log(data)
+			// })
+			// .catch(error => {
+			// 	console.log('Erro ao enviar solicitação: ', error);
+			// })
 
 		},
 		changeColor(buttonNumber) {
