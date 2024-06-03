@@ -2,7 +2,7 @@
 	<div class="fundao">
 		<div class="cor-braca01">
 			<div class="div-botao-voltar">
-				<button class="botao-volta" @click="voltarPagina"></button>
+				<button class="botao-volta"></button>
 			</div>
 			<div class="format-frases">
 				<h1>Criar uma conta</h1>
@@ -24,8 +24,8 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Nome Completo</h3>
-								<b-form-input type="text" class="custom-input" id="input-none" :state="null"
-									placeholder="Inserir email">
+								<b-form-input type="text" class="custom-input" id="input-none" :state="null" v-model="cadastro.name"
+									placeholder="Inserir nome">
 								</b-form-input>
 							</b-col>
 						</b-row>
@@ -35,15 +35,15 @@
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Celular</h3>
 								<b-form-input type="text" class="custom-input" id="input-valid" :state="null"
-									placeholder="Inserir senha"></b-form-input>
+									v-model="cadastro.telefone" placeholder="() _ _ _ _-_ _ _ _"></b-form-input>
 							</b-col>
 						</b-row>
 
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Email</h3>
-								<b-form-input type="text" class="custom-input" id="input-valid" :state="null"
-									placeholder="Inserir senha"></b-form-input>
+								<b-form-input type="text" class="custom-input" id="input-valid" :state="null" v-model="cadastro.email"
+									placeholder="Inserir email"></b-form-input>
 							</b-col>
 						</b-row>
 
@@ -51,7 +51,7 @@
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Senha</h3>
 								<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
-									placeholder="Inserir senha"></b-form-input>
+									v-model="cadastro.password" placeholder="Inserir senha"></b-form-input>
 							</b-col>
 						</b-row>
 
@@ -59,13 +59,13 @@
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Confirmação senha</h3>
 								<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
-									placeholder="Confirmar senha">
+									v-model="cadastro.passwordConfirm" placeholder="Confirmar senha">
 								</b-form-input>
 							</b-col>
 						</b-row>
 
 						<div class="div-botao">
-							<button class="botao-avancar">Avançar</button>
+								<button class="botao-avancar" @click="botaoApiAvancar">Avançar</button>
 						</div>
 
 					</b-col>
@@ -79,10 +79,48 @@
 export default {
 	data() {
 		return {
-			voltarPagina() {
-				this.$router.go(-1);
+			cadastro: {
+				name: '',
+				telefone: '',
+				email: '',
+				password: '',
+				passwordConfirm: ''
 			}
 		};
+	},
+	methods: {
+		botaoApiAvancar() {
+			if(!this.cadastro.name || !this.cadastro.telefone || !this.cadastro.email || !this.cadastro.password || !this.cadastro.passwordConfirm) {
+				alert('Para prosseguir, é necessário preencher todos os campos!');
+			}
+
+			fetch('http://localhost:8090/users', {
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify({
+					name: this.cadastro.name,
+					cellPhone: this.cadastro.telefone,
+					email: this.cadastro.email,
+					password: this.cadastro.password,
+					passwordConfirm: this.cadastro.passwordConfirm
+				})
+			})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Erro ao enviar solicitação');
+				}
+				return response.json();
+			})
+			.then(data => {
+				console.log(data);
+				this.$router.push('/Home');
+			})
+			.catch(error => {
+				console.log('Erro ao enviar solicitação: ', error);
+			})
+		}
 	}
 };
 </script>

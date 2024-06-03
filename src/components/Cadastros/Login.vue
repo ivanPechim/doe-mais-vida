@@ -37,9 +37,7 @@
 							</b-col>
 						</div>
 						<b-container class="login">
-							<router-link to="/Home">
-								<b-button variant="light" class="primeiro-botao-padrao" @click="loginData = teste()">Entrar</b-button>
-							</router-link>
+								<b-button variant="light" class="primeiro-botao-padrao" @click="entrarApi">Entrar</b-button>
 						</b-container>
 						<b-container>
 							<router-link to="/CadastroUsuario">
@@ -78,9 +76,7 @@
 						</div>
 						<div class="botoes-login">
 							<b-container class="login">
-								<router-link to="/home">
-									<b-button variant="light" class="primeiro-botao-padrao" @click="loginData = teste()">Entrar</b-button>
-								</router-link>
+								<b-button variant="light" class="primeiro-botao-padrao" @click="entrarApi">Entrar</b-button>
 							</b-container>
 							<b-container>
 								<router-link to="/CadastroUsuario">
@@ -100,13 +96,13 @@
 			</div>
 		</div>
 		<div class="caixa-white">
-			
+
 		</div>
 	</div>
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
 	name: "LoginLogar",
@@ -123,55 +119,51 @@ export default {
 		}
 	},
 	methods: {
-		teste() {
-			const email = this.infoLogin.user;
-			const senha = this.infoLogin.password;
+		entrarApi() {
+			if(!this.infoLogin.user || !this.infoLogin.password) {
+				alert('Por favor, preencha todos os campos antes de prosseguir!');
+				return
+			}
 
-			axios.post('http://localhost:8080/', {
-				email: email,
-				senha: senha
+			fetch("http://localhost:8090/users/login", {
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify({
+					emailOrPhone: this.infoLogin.user,
+					password: this.infoLogin.password
+				})
 			})
-			.then(response => {
-				console.log(response.data);
-			})
-			.catch(error => {
-				console.log('Erro ao enviar solicitação: ', error)
-			});
+				.then(response => {
+					if (!response.ok) {
+						if(response === 400) {
+							alert('Usuário ou senha incorretos. Por favor, tente novamente.');
+						} else {
+							throw new Error('Erro ao enviar solicitação');
+						}
+					}
+					return response.json();
+				})
+				.then(data => {
+					console.log(data);
+					this.$router.push('/Home');
+				})
+				.catch(error => {
+					console.log('Erro ao enviar solicitação: ', error);
+				})
 
-			// fetch("http://localhost:8080/", {
-			// 	headers: {
-			// 		'Content-Type': 'application/json'
-			// 	},
-			// 	method: 'POST',
-			// 	body: JSON.stringify({
-			// 		email: this.infoLogin.user,
-			// 		senha: this.infoLogin.password
-			// 	})
-			// 	})
-			// 	.then(response => {
-			// 		if (!response.ok) {
-			// 			throw new Error('Erro ao enviar solicitação');
-			// 	}
-			// 	return response.json();
-			// })
-			// .then(data => {
-			// 	console.log(data)
-			// })
-			// .catch(error => {
-			// 	console.log('Erro ao enviar solicitação: ', error);
-			// })
-
-	},
-	changeColor(buttonNumber) {
-		if (buttonNumber === 1) {
-			this.buttonVariant01 = 'danger';
-			this.buttonVariant02 = 'light';
-		} else if (buttonNumber === 2) {
-			this.buttonVariant01 = 'light';
-			this.buttonVariant02 = 'danger';
+		},
+		changeColor(buttonNumber) {
+			if (buttonNumber === 1) {
+				this.buttonVariant01 = 'danger';
+				this.buttonVariant02 = 'light';
+			} else if (buttonNumber === 2) {
+				this.buttonVariant01 = 'light';
+				this.buttonVariant02 = 'danger';
+			}
 		}
 	}
-}
 }
 </script>
 
