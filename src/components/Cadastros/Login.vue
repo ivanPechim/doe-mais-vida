@@ -97,12 +97,14 @@
 				</b-container>
 			</div>
 		</div>
-		<div class="caixa-white"></div>
+		<div class="caixa-white">
+			
+		</div>
 	</div>
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 
 export default {
 	name: "LoginLogar",
@@ -114,24 +116,27 @@ export default {
 			nameState: null,
 			infoLogin: {
 				user: '',
-				password: '',
-				passwordState: null
-			},
-			loginData: ''
+				password: ''
+			}
 		}
 	},
 	methods: {
 		teste() {
+			// this.loginData = JSON.stringify({
+			// 	email: this.infoLogin.user,
+			// 	senha: this.infoLogin.password
+			// });
+			// console.log(this.loginData)
 
 			// const email = this.infoLogin.user;
 			// const senha = this.infoLogin.password;
 
 			// axios.post('http://localhost:8080/', {
-			// 	email: this.infoLogin.user,
-			// 	senha: this.infoLogin.password
+			// 	email: email,
+			// 	senha: senha
 			// })
-			// .then(response => {
-			// 	console.log(response.data);
+			// .then(data => {
+			// 	console.log(data)
 			// })
 			// .catch(error => {
 			// 	console.log('Erro ao enviar solicitação: ', error)
@@ -159,6 +164,7 @@ export default {
 			.catch(error => {
 				console.log('Erro ao enviar solicitação: ', error);
 			})
+
 	},
 	changeColor(buttonNumber) {
 		if (buttonNumber === 1) {
