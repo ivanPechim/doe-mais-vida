@@ -7,6 +7,8 @@ import CadastroUsuario from '../components/Cadastros/CadastroUsuario.vue';
 import RecuperaConta from '../components/Cadastros/RecuperaConta.vue';
 import Home from '../components/Home.vue';
 import Agendamentos from '../components/Agendamentos/AgendamentosTela.vue';
+import RequisitosBasicos from '../components/Agendamentos/RequisitosBasicos.vue';
+
 
 
 Vue.use(VueRouter)
@@ -41,6 +43,12 @@ const routes = [
     path: '/RecuperarConta',
     component: RecuperarConta
   },
+  {
+    path: '/RequisitosBasicos',
+    component: RequisitosBasicos
+  },
+
+  
 ]
 
 const router = new VueRouter({
