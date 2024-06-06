@@ -32,42 +32,47 @@
 				<b-row>
 					<b-col>HISTORIAS DE USUARIOS</b-col>
 				</b-row>
-				<h3 class="texto">Júlia Figueiredo ✅<br>
-					<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
-				</h3><br>
-	
-				<p>
-					<img class="img" alt="img"
-						src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQFGi7fiSBBKzmi0NAiQPemvKlvi834XkxNsJ_LI2Vv80XMGOwX">
-				</p>
-				<p class="texto">
-					It is a long established fact that a reader will be distracted by the readable content of a page when looking
-					at its layout. the point of using Lorem
-				</p>
-				<h3 class="texto">Ana Paula ✅<br>
-					<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
-				</h3><br>
-	
-				<p class="texto2">
-					<img class="img" alt="img" src="https://www.crmpr.org.br/dbimages/doanmdo-sangue_20888_img.jpg">
-				</p>
-				<p class="texto">
-					It is a long established fact that a reader will be distracted by the readable content of a page when looking
-					at its layout. the point of using Lorem
-				</p>
-	
+				<b-row v-for="person in persons" :key="person.id">
+					<div>
+						<h3 class="texto">{{ person.name }} ✅<br>
+							<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
+						</h3>
+						<br>
+						<p>
+							<img 
+								class="img" 
+								alt="img"
+								:src="getImageUrl(person.imgUrl)"
+							>
+						</p>
+						<p class="texto">
+							It is a long established fact that a reader will be distracted by the readable content of a page when looking
+							at its layout. the point of using Lorem
+						</p>
+					</div>
+				</b-row>
 			</div>
 		</div>
 	</b-container>
 </template>
 
+
 <script>
+
+import jsons from "../../persons.example.json" 
+
 export default {
 	name: "LoginLogar",
 	data() {
 		return {
-
+			persons: jsons
 		}
+	},
+	methods: {
+		getImageUrl(imgUrl) {
+      // eslint-disable-next-line no-undef
+      return require(`../../public/persons/${imgUrl}.jpg`);
+    }
 	}
 }
 
@@ -98,11 +103,11 @@ export default {
 	height: 50px;
 }
 
-/* .img {
-	width: 1580px;
-	height: 1121px;
+.img {
+	width: 50%;
+	height: 50%;
 	background-color: white;
-} */
+}
 
 .img-Perfil {
 	width: 1580px;

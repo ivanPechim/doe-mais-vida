@@ -1,72 +1,87 @@
 <template>
   <div class="fundo">
     <div class="fundo_botao_requisitos">
-      <div class="botao_requisitos">
-        <button id="botao_requsitos">Requisitos Básicos para Doação</button>
+      <div class="fundo_btn w-50 mb-5 p-3">
+        <button id="botao_requsitos">Requisitos Básicos <br> para Doação</button>
       </div>
       
       <div class="formulario">
-        <div class="campo">
-          <h1>Município</h1>
-          <label for="municipio"></label>
-          <select v-model="selectedMunicipio" @change="onMunicipioChange" required>
-            <option value="">Inserir um município</option>
-            <option v-for="(value, key) in unidadesPorMunicipio" :key="key" :value="key">{{ formatMunicipio(key) }}</option>
-          </select>
-        </div>
+				<b-row>
+					<b-col class="text">
+						<b-form-group label="Município:">
+							<b-select v-model="selectedMunicipio" @change="onMunicipioChange" required>
+								<option value="">Inserir um município</option>
+								<option v-for="(value, key) in unidadesPorMunicipio" :key="key" :value="key">{{ formatMunicipio(key) }}</option>
+							</b-select>
+						</b-form-group>
+					</b-col>
 
-        <div class="campo">
-          <h1>Unidade de Atendimento</h1>
-          <label for="unidade"></label>
-          <select v-model="selectedUnidade" required>
-            <option value="">Inserir uma unidade</option>
-            <option v-for="unidade in unidades" :key="unidade" :value="unidade">{{ unidade }}</option>
-          </select>
-        </div>
+					<b-col>
+						<b-form-group label="Unidade de Atendimento:">
+							<b-select v-model="selectedUnidade" required>
+								<option value="">Inserir uma unidade</option>
+								<option v-for="unidade in unidades" :key="unidade" :value="unidade">{{ unidade }}</option>
+							</b-select>
+						</b-form-group>
+					</b-col>
+				</b-row>
 
-        <div class="campo">
-          <h1>Data de Agendamento</h1>
-          <input type="date" v-model="dataAgendamento" required>
-        </div>
+				<b-row>
+					<b-col>
+						<b-form-group label="Data de Agendamento:">
+							<b-form-input type="date" v-model="dataAgendamento" required></b-form-input>
+						</b-form-group>
+					</b-col>
+					<b-col>
 
-        <div class="campo">
-          <h1>Horário de Atendimento</h1>
-          <select v-model="selectedHorario" required>
-            <option value="">Selecione um Horário</option>
-            <option v-for="horario in horarios" :key="horario" :value="horario">{{ horario }}</option>
-          </select>
-        </div>
+						<b-form-group label="Horário de Atendimento:">
+							<b-select v-model="selectedHorario" required>
+								<option value="">Selecione um Horário</option>
+								<option v-for="horario in horarios" :key="horario" :value="horario">{{ horario }}</option>
+							</b-select>
+						</b-form-group>
+					</b-col>
+				</b-row>
 
-        <div class="campo">
-          <h1>Nome</h1>
-          <input type="text" v-model="nome" required>
-        </div>
+				<b-row>
+					<b-col>
+						<b-form-group label="Nome:">
+							<b-form-input  type="text" v-model="nome" required></b-form-input>
+						</b-form-group>
+					</b-col>
+					<b-col>
+						<b-form-group label="CPF:">
+							<b-form-input type="text" v-model="cpf" required></b-form-input>
+						</b-form-group>
+					</b-col>
+				</b-row>
 
-        <div class="campo">
-          <h1>CPF</h1>
-          <input type="text" v-model="cpf" required>
-        </div> 
+				<b-row>
+					<b-col>
+						<b-form-group label="Email:">
+							<b-form-input type="email" v-model="email" required></b-form-input>
+						</b-form-group>
+					</b-col>
+					<b-col>
+						<b-form-group label="Data de nascimento:">
+							<b-form-input type="date" v-model="dataNascimento" required></b-form-input>
+						</b-form-group>
+					</b-col>
+				</b-row>
 
-        <div class="campo">
-          <h1>Email</h1>
-          <input type="email" v-model="email" required>
-        </div>
+				<b-row class="mb-4">
+					<b-col>
+						<b-form-group label="Telefone/Celular:">
+							<b-form-input type="tel" v-model="telefone" required></b-form-input>
+						</b-form-group>
+					</b-col>
+				</b-row>
 
-        <div class="campo">
-          <h1>Data de Nascimento</h1>
-          <input type="date" v-model="dataNascimento" required>
-        </div>
-
-        <div class="campo">
-          <h1>Telefone/Celular</h1>
-          <input type="tel" v-model="telefone" required>
-        </div>
-
-        <div class="campo botao_agendar">
-          <button id="botao_agendar" @click="confirmarAgendamento">Confirmar Agendamento</button>
-        
-          
-        </div>
+        <b-row>
+          <b-col>
+						<b-button class="w-100 btn" @click="confirmarAgendamento">Confirmar Agendamento</b-button>
+					</b-col>
+        </b-row>
       </div>
     </div>
   </div>
@@ -127,7 +142,10 @@ export default {
 </script>
 
 <style scoped>
-/* Estilo Geral */
+* {
+	text-align: left;
+	color: white;
+}
 .fundo {
   background-color: red;
   width: 100%;
@@ -135,7 +153,15 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+}
+
+.btn {
+	background-color: #952626;
+	border: 0;
+}
+
+.formulario {
+	justify-content: left;
 }
 
 .fundo_botao_requisitos {
@@ -148,56 +174,20 @@ export default {
   padding: 10px;
 }
 
-.botao_requisitos {
-  background-color: white;
-  width: 60%;
-  height: auto;
-  border-radius: 25%;
+.fundo_btn {
+	background-color: rgb(240, 84, 84);
+	border-radius: 10px; 
+	display: flex;
+	justify-content: center;
 }
 
 #botao_requsitos {
   background-color: white;
+	text-align: center;
+	width: 75%;
   color: red; 
   font-size: 18px; 
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 10px 20px; 
-  border: none; 
-  border-radius: 10%; 
-  cursor: pointer; 
+  border-radius: 50px; 
 }
 
-.formulario {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-}
-
-.campo {
-  margin-bottom: 20px;
-  font-family: Arial, Helvetica, sans-serif;  
-  font-size: 130%;
-}
-
-h1 {
-  font-size: 25px;
-  margin-bottom: 3px;
-  height: auto;
-}
-
-.botao_agendar {
-  grid-column: span 1; /* Ocupa toda a linha no grid */
-  display: flex;
-  justify-content: center; /* Centraliza o botão horizontalmente */
-}
-
-#botao_agendar {
-  background-color: white;
-  color: red; 
-  font-size: 18px; 
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 10px 20px; 
-  border: none; 
-  border-radius: 10%; 
-  cursor: pointer; 
-}
 </style>
