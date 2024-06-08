@@ -16,16 +16,25 @@
 					<form action="">
 
 					</form>
-					<div v-if="buttonVariant01 === 'danger'" class="informacoes-email">
+					<!-- v-if="buttonVariant01 === 'danger'"  -->
+					<div class="informacoes-email">
 						<div>
-							<h1 class="texto-h1">Cadastrar conta com o meu email</h1>
+							<h1 class="texto-h1">
+								Cadastrar conta com o meu  {{ buttonVariant01 === 'danger' ? "email" : "celular" }}
+							</h1>
 						</div>
 						<div id="inputs-container">
 							<b-col role="group">
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
-										<b-form-input class="custom-input" id="input-none" :state="null" v-model="infoLogin.user"
-											placeholder="Inserir email"></b-form-input>
+										<b-form-input 
+											class="custom-input" 
+											id="input-none" 
+											:state="null" 
+											v-model="infoLogin.user"
+											:placeholder="buttonVariant01 === 'danger' ? 'Inserir email' : 'Inserir celular'"
+										>
+										</b-form-input>
 									</b-col>
 								</b-row>
 								<b-row class="my-1">
@@ -37,9 +46,7 @@
 							</b-col>
 						</div>
 						<b-container class="login">
-							<router-link to="/Home">
-								<b-button variant="light" class="primeiro-botao-padrao" @click="loginData = teste()">Entrar</b-button>
-							</router-link>
+							<b-button variant="light" class="primeiro-botao-padrao" @click="login">Entrar</b-button>
 						</b-container>
 						<b-container>
 							<router-link to="/CadastroUsuario">
@@ -49,51 +56,10 @@
 						<b-container>
 							<b-button variant="light" class="botao-padrao img-google">Entrar com Google</b-button>
 						</b-container>
-						<router-link to="/RecuperaConta">
-							<a href="" class="link-conta">Esqueci minha senha</a>
+						<router-link to="/recuperarConta">
+							<a class="link-conta">Esqueci minha senha</a>
 						</router-link>
 					</div>
-
-
-
-					<div v-if="buttonVariant02 === 'danger'" class="informacoes-celular">
-						<div>
-							<h1 class="texto-h1">Cadastrar conta com o meu celular</h1>
-						</div>
-						<div id="inputs-container">
-							<b-col role="group">
-								<b-row class="my-1">
-									<b-col md="8" offset-md="2">
-										<b-form-input class="custom-input" id="input-none" :state="null"
-											placeholder="Inserir número de telefone"></b-form-input>
-									</b-col>
-								</b-row>
-								<b-row class="my-1">
-									<b-col md="8" offset-md="2">
-										<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
-											placeholder="Inserir senha"></b-form-input>
-									</b-col>
-								</b-row>
-							</b-col>
-						</div>
-						<div class="botoes-login">
-							<b-container class="login">
-								<b-button variant="light" class="primeiro-botao-padrao" @click="entrarApi">Entrar</b-button>
-							</b-container>
-							<b-container>
-								<router-link to="/CadastroUsuario">
-									<b-button variant="light" class="botao-padrao">Criar conta</b-button>
-								</router-link>
-							</b-container>
-							<b-container>
-								<b-button variant="light" class="botao-padrao img-google">Entrar com Google</b-button>
-							</b-container>
-							<router-link to="/RecuperaConta">
-								<a href="" class="link-conta">Esqueci minha senha</a>
-							</router-link>
-						</div>
-					</div>
-
 				</b-container>
 			</div>
 		</div>
@@ -104,13 +70,13 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 
 export default {
 	name: "LoginLogar",
 	data() {
 		return {
-			buttonVariant01: 'light',
+			buttonVariant01: 'danger',
 			buttonVariant02: 'light',
 			name: '',
 			nameState: null,
@@ -121,7 +87,7 @@ export default {
 		}
 	},
 	methods: {
-		teste() {
+		login() {
 			const email = this.infoLogin.user;
 			const senha = this.infoLogin.password;
 
@@ -135,6 +101,8 @@ export default {
 			.catch(error => {
 				console.log('Erro ao enviar solicitação: ', error)
 			});
+
+			this.$router.push('/home');
 
 			// fetch("http://localhost:8080/", {
 			// 	headers: {
@@ -174,6 +142,12 @@ export default {
 </script>
 
 <style>
+img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 50px;
+}
+
 .fundo-total {
 	display: flex;
 	width: 100vw;
@@ -190,12 +164,6 @@ export default {
 	height: 75vh;
 	background-color: #E53A3A;
 	flex: 1;
-}
-
-img {
-	width: 100px;
-	height: 100px;
-	margin-bottom: 50px;
 }
 
 .caixa-white {
@@ -291,7 +259,12 @@ button {
 }
 
 .link-conta {
+	text-decoration: none;
 	color: white;
 	text-align: left;
+}
+
+.link-conta:hover {
+	text-decoration: none
 }
 </style>

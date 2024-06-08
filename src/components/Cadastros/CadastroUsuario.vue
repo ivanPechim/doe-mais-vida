@@ -2,7 +2,7 @@
 	<div class="fundao">
 		<div class="cor-braca01">
 			<div class="div-botao-voltar">
-				<button class="botao-volta"></button>
+				<button @click="volta" class="botao-volta"></button>
 			</div>
 			<div class="format-frases">
 				<h1>Criar uma conta</h1>
@@ -120,12 +120,22 @@ export default {
 			.catch(error => {
 				console.log('Erro ao enviar solicitação: ', error);
 			})
+		},
+		volta() {
+			this.$router.push('/home');
 		}
 	}
 };
 </script>
 
-<style>
+<style scoped>
+.custom-input {
+	width: 500px;
+	height: 50px;
+	border-radius: 5px;
+	border: white;
+	padding: 0 15px;
+}
 .fundao {
 	background-color: #e53a3a;
 	width: 100%;
@@ -179,9 +189,8 @@ export default {
 .form {
 	color: white;
 	width: 50%;
-	height: 100vh;
 	position: absolute;
-	top: 30%;
+	top: 25%;
 	display: flex;
 	flex-direction: column;
 }
@@ -192,14 +201,6 @@ export default {
 	text-align: left;
 	width: 100%;
 	font-size: 20px;
-}
-
-input {
-	width: 500px;
-	height: 50px;
-	border-radius: 5px;
-	border: white;
-	padding: 0 15px;
 }
 
 .div-botao {

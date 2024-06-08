@@ -144,7 +144,7 @@ export default {
 <style scoped>
 * {
 	text-align: left;
-	color: white;
+	/* color: white; */
 }
 .fundo {
   background-color: red;

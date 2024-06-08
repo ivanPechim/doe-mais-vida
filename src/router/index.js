@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import Login from '../components/Cadastros/Login.vue';
 import VueRouter from 'vue-router';
-import RecuperarConta from '../components/RecuperarConta.vue';
-import CriacaoUsuario from '../components/CriacaoUsuario.vue';
 import CadastroUsuario from '../components/Cadastros/CadastroUsuario.vue';
 import RecuperaConta from '../components/Cadastros/RecuperaConta.vue';
 import Home from '../components/Home.vue';
@@ -14,32 +12,25 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'login',
     component: Login
   },
 	{
-    path: '/Home',
+    path: '/home',
     component: Home
   },
 	{
-		path: '/CadastroUsuario',
+		path: '/cadastroUsuario',
 		component: CadastroUsuario
 	},
 	{
-		path: '/RecuperaConta',
+		path: '/recuperarConta',
 		component: RecuperaConta
 	},
   {
-    path: '/CriacaoUsuario',
-    component: CriacaoUsuario
-  },
-  {
+		name: 'agendamentos',
     path: '/agendamentos',
     component: Agendamentos
-  },
-  {
-    path: '/RecuperarConta',
-    component: RecuperarConta
   },
 ]
 

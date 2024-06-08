@@ -18,6 +18,7 @@
 								Precisam de um doador
 							</p>
 							<b-button
+								@click="pagQueroDoar"
 								type="button"
 								class="btn"
 								variant="light"
@@ -72,7 +73,10 @@ export default {
 		getImageUrl(imgUrl) {
       // eslint-disable-next-line no-undef
       return require(`../../public/persons/${imgUrl}.jpg`);
-    }
+    },
+		pagQueroDoar() {
+			this.$router.push('/agendamentos');
+		}
 	}
 }
 

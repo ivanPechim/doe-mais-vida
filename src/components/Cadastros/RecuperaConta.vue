@@ -7,11 +7,17 @@
 					<b-row>
 						<b-col md="8" offset-md="2">
 							<h3>Redefinir senha</h3>
-							<b-form-input type="text" class="custom-input" id="input-valid" :state="null"
-									placeholder="Inserir senha">Email/Telefone</b-form-input>
+							<b-form-input 
+								type="text" 
+								class="custom-input" 
+								id="input-valid" 
+								:state="null"
+								placeholder="Inserir senha"
+							>
+								Email/Telefone
+							</b-form-input>
 						</b-col>
 					</b-row>
-
 					<div>
 						<button class="botao-proximo">Próximo</button>
 					</div>
@@ -40,6 +46,11 @@ export default {
 </script>
 
 <style>
+img {
+	width: 100px;
+	height: 100px;
+	margin: 45px auto 50px auto;
+}
 
 .tela-cheia {
 	display: flex;
@@ -59,13 +70,23 @@ export default {
 	flex: 1;
 }
 
-img {
-	width: 100px;
-	height: 100px;
-	margin: 45px auto 50px auto;
+.branco-fundo {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 25vh;
+	background-color: white;
 }
 
-.branco-fundo {
+.caixa-red {
+	padding-top: 50px;
+	width: 100vw;
+	height: 75vh;
+	background-color: #E53A3A;
+	flex: 1;
+}
+
+.caixa-white {
 	top: 0;
 	left: 0;
 	width: 100vw;
