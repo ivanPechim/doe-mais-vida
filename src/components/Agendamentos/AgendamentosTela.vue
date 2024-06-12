@@ -2,7 +2,7 @@
   <div class="fundo">
     <div class="fundo_botao_requisitos">
       <div class="fundo_btn w-50 mb-5 p-3">
-        <button id="botao_requsitos">Requisitos Básicos <br> para Doação</button>
+        <button @click="abreTelaRequisitos" id="botao_requsitos">Requisitos Básicos <br> para Doação</button>
       </div>
       
       <div class="formulario">
@@ -136,7 +136,11 @@ export default {
     },
     confirmarAgendamento() {
       this.agendamentoConfirmado = true;
-    }
+    },
+
+		abreTelaRequisitos() {
+			this.$router.push('/requisitos');
+		}
   }
 }
 </script>
