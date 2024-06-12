@@ -60,7 +60,7 @@
 
 <script>
 
-import jsons from "../../persons.example.json" 
+import jsons from "../../../persons.example.json" 
 
 export default {
 	name: "LoginLogar",
@@ -72,7 +72,7 @@ export default {
 	methods: {
 		getImageUrl(imgUrl) {
       // eslint-disable-next-line no-undef
-      return require(`../../public/persons/${imgUrl}.jpg`);
+      return require(`../../../public/persons/${imgUrl}.jpg`);
     },
 		pagQueroDoar() {
 			this.$router.push('/agendamentos');
