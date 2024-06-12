@@ -83,9 +83,6 @@ export default {
 	},
 	methods: {
 		login() {
-			if (!this.user || !this.password) {
-				alert("Para processeguir, é necessário preencher todos os campos!")
-			}
 			fetch("http://localhost:8090/users/login", {
 				headers: {
 					'Content-Type': 'application/json'
@@ -97,21 +94,20 @@ export default {
 				})
 			})
 				.then(response => {
-					if (!response.ok) {
-						throw new Error('Erro ao enviar solicitação');
-					}
-					return response.json();
-				})
-				.then(data => {
-					console.log(data)
-					if (data.status == 200) {
+					console.log('Resposta completa: ', response);
+					if (response.status === 200) {
 						this.$router.push('/home');
+					} else if (response.status === 400) {
+						alert("Credenciais inválidas. Por favor, tente novamente.");
+					} else if (response.status === 500) {
+						alert("Gentileza preencher todos os campos para prosseguir.");
 					} else {
-						alert("Credenciais inválidas. Por favor, tente novamente.")
+						throw new Error('Erro ao enviar solicitação: status ' + response.status);
 					}
 				})
 				.catch(error => {
 					console.log('Erro ao enviar solicitação: ', error);
+					// error.json().then(errorMessage => console.log('Mensagem de erro: ', errorMessage));
 				});
 		},
 		changeColor(buttonNumber) {
