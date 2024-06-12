@@ -20,20 +20,15 @@
 					<div class="informacoes-email">
 						<div>
 							<h1 class="texto-h1">
-								Cadastrar conta com o meu  {{ buttonVariant01 === 'danger' ? "email" : "celular" }}
+								Cadastrar conta com o meu {{ buttonVariant01 === 'danger' ? "email" : "celular" }}
 							</h1>
 						</div>
 						<div id="inputs-container">
 							<b-col role="group">
 								<b-row class="my-1">
 									<b-col md="8" offset-md="2">
-										<b-form-input 
-											class="custom-input" 
-											id="input-none" 
-											:state="null" 
-											v-model="infoLogin.user"
-											:placeholder="buttonVariant01 === 'danger' ? 'Inserir email' : 'Inserir celular'"
-										>
+										<b-form-input class="custom-input" id="input-none" :state="null" v-model="infoLogin.user"
+											:placeholder="buttonVariant01 === 'danger' ? 'Inserir email' : 'Inserir celular'">
 										</b-form-input>
 									</b-col>
 								</b-row>
@@ -70,7 +65,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
 	name: "LoginLogar",
@@ -88,45 +83,32 @@ export default {
 	},
 	methods: {
 		login() {
-			const email = this.infoLogin.user;
-			const senha = this.infoLogin.password;
-
-			axios.post('http://localhost:8080/', {
-				email: email,
-				senha: senha
+			fetch("http://localhost:8090/users/login", {
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify({
+					emailOrPhone: this.infoLogin.user,
+					password: this.infoLogin.password
+				})
 			})
-			.then(response => {
-				console.log(response.data);
-			})
-			.catch(error => {
-				console.log('Erro ao enviar solicitação: ', error)
-			});
-
-			this.$router.push('/home');
-
-			// fetch("http://localhost:8080/", {
-			// 	headers: {
-			// 		'Content-Type': 'application/json'
-			// 	},
-			// 	method: 'POST',
-			// 	body: JSON.stringify({
-			// 		email: this.infoLogin.user,
-			// 		senha: this.infoLogin.password
-			// 	})
-			// 	})
-			// 	.then(response => {
-			// 		if (!response.ok) {
-			// 			throw new Error('Erro ao enviar solicitação');
-			// 	}
-			// 	return response.json();
-			// })
-			// .then(data => {
-			// 	console.log(data)
-			// })
-			// .catch(error => {
-			// 	console.log('Erro ao enviar solicitação: ', error);
-			// })
-
+				.then(response => {
+					console.log('Resposta completa: ', response);
+					if (response.status === 200) {
+						this.$router.push('/home');
+					} else if (response.status === 400) {
+						alert("Credenciais inválidas. Por favor, tente novamente.");
+					} else if (response.status === 500) {
+						alert("Gentileza preencher todos os campos para prosseguir.");
+					} else {
+						throw new Error('Erro ao enviar solicitação: status ' + response.status);
+					}
+				})
+				.catch(error => {
+					console.log('Erro ao enviar solicitação: ', error);
+					// error.json().then(errorMessage => console.log('Mensagem de erro: ', errorMessage));
+				});
 		},
 		changeColor(buttonNumber) {
 			if (buttonNumber === 1) {
