@@ -24,7 +24,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Nome Completo</h3>
-								<b-form-input type="text" class="custom-input" id="input-none" :state="null" v-model="cadastro.name"
+								<b-form-input type="text" class="inputs-brancos" id="input-none" :state="null" v-model="cadastro.name"
 									placeholder="Inserir nome">
 								</b-form-input>
 							</b-col>
@@ -34,7 +34,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Celular</h3>
-								<b-form-input type="text" class="custom-input" id="input-valid" :state="null"
+								<b-form-input type="text" class="inputs-brancos" id="input-valid" :state="null"
 									v-model="cadastro.telefone" placeholder="() _ _ _ _-_ _ _ _"></b-form-input>
 							</b-col>
 						</b-row>
@@ -42,7 +42,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Email</h3>
-								<b-form-input type="text" class="custom-input" id="input-valid" :state="null" v-model="cadastro.email"
+								<b-form-input type="text" class="inputs-brancos" id="input-valid" :state="null" v-model="cadastro.email"
 									placeholder="Inserir email"></b-form-input>
 							</b-col>
 						</b-row>
@@ -50,7 +50,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Senha</h3>
-								<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+								<b-form-input type="password" class="inputs-brancos" id="input-valid" :state="null"
 									v-model="cadastro.password" placeholder="Inserir senha"></b-form-input>
 							</b-col>
 						</b-row>
@@ -58,7 +58,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Confirmação senha</h3>
-								<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+								<b-form-input type="password" class="inputs-brancos" id="input-valid" :state="null"
 									v-model="cadastro.passwordConfirm" placeholder="Confirmar senha">
 								</b-form-input>
 							</b-col>
@@ -129,8 +129,8 @@ export default {
 </script>
 
 <style scoped>
-.custom-input {
-	width: 500px;
+.inputs-brancos {
+	width: 600px;
 	height: 50px;
 	border-radius: 5px;
 	border: white;
@@ -201,6 +201,7 @@ export default {
 	text-align: left;
 	width: 100%;
 	font-size: 20px;
+	margin-top: 10px;
 }
 
 .div-botao {
@@ -208,11 +209,11 @@ export default {
 }
 
 .botao-avancar {
-	width: 65%;
+	width: 600px;
 	height: 80px;
 	border: none;
 	color: white;
 	background-color: #952626;
-	border-radius: 5px !important;
+	border-radius: 5px;
 }
 </style>
