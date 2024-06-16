@@ -1,9 +1,12 @@
 <template>
 	<div class="tela-cheia">
 		<div class="vermelha-caixa">
-			<img
-				src="https://lh3.googleusercontent.com/drive-viewer/AKGpihYixnn4eaGcvmb8GPHBKGDDU0WWry9IdLgmQmmRMoo5zPQ6L6w67UXrOHyqbph3MTeUgM5TlIaiJuHqoohY8gFRolxn01CMLxc=w1872-h958"
-				alt="Logo Doação">
+			<div class="div-botao-voltar-logo">
+				<button @click="volta" class="botao-volta"></button>
+				<img
+					src="https://lh3.googleusercontent.com/drive-viewer/AKGpihYixnn4eaGcvmb8GPHBKGDDU0WWry9IdLgmQmmRMoo5zPQ6L6w67UXrOHyqbph3MTeUgM5TlIaiJuHqoohY8gFRolxn01CMLxc=w1872-h958"
+					alt="Logo Doação">
+			</div>
 			<div class="caixa-escura">
 				<form action="">
 					<b-row class="input">
@@ -40,7 +43,9 @@ export default {
 		}
 	},
 	methods: {
-
+		volta() {
+			this.$router.push('/');
+		}
 	}
 }
 </script>
@@ -78,18 +83,6 @@ img {
 	background-color: white;
 }
 
-
-/* .caixa-vermelho-escuro {
-	padding: 30px;
-	margin: auto;
-	position: relative;
-	background-color: #952626;
-	width: 95%;
-	height: 100%;
-	border-radius: 15px;
-	justify-content: center;
-} */
-
 input {
 	width: 50px;
 	height: 50px;
@@ -124,4 +117,21 @@ input {
 .input {
 	margin-bottom: 30px;
 }
+
+.div-botao-voltar-logo {
+	display: flex;
+	align-items: center;
+	padding: 28px;
+	width: 68%;
+	height: 30%;
+	padding-left: 40px;
+}
+
+.botao-volta {
+	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihaEZ_YjWdSH6KXHzp9Zerg-Zz3OntkaM-fE4TzvsgwJ46eck2DisOROLbd1s0gKCiFqIPCasKwhLDXn7CN7vLEsI92NKzmRkDk=w1920-h947');
+	background-size: 40px;
+	background-repeat: no-repeat;
+	background-color: #E53A3A;
+}
+
 </style>
