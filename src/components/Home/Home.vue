@@ -1,15 +1,16 @@
 <template>
 	<b-container>
 		<div class="bg-VermelhoTopo">
-			<div class="bg-Vermelho">
+			<div class="bg-Vermelho m-0">
 				<b-row>
-					<b-col>
+					<b-col class="m-3">
 						<h3>HOME</h3>
 					</b-col>
 				</b-row>
 				<b-row>
 					<b-col
-						class="d-flex justify-content-center"
+						
+						class="d-flex justify-content-center m-3"
 					>
 						<div class="caixa">
 							<p class="">
@@ -30,7 +31,7 @@
 				</b-row>
 			</div>
 			<div class="bg-Branco">
-				<b-row>
+				<b-row class="m-1">
 					<b-col>HISTORIAS DE USUARIOS</b-col>
 				</b-row>
 				<b-row v-for="person in persons" :key="person.id">
@@ -98,10 +99,6 @@ export default {
 	align-items: center;
 }
 
-.qtdDoador {
-	
-}
-
 .btn {
 	width: 150px;
 	height: 50px;
@@ -153,13 +150,4 @@ export default {
 .letraVermelha {
 	color: rgb(236, 60, 60);
 }
-
-#fundo {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 </style>

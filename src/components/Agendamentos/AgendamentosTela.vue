@@ -84,6 +84,51 @@
         </b-row>
       </div>
     </div>
+		<b-modal
+      size="lg"
+      ref="modalDesenho"
+      hide-footer
+      no-close-on-backdrop
+    >
+      <b-container fluid class="d-flex justify-content-center">
+				<div class="background">
+					<b-row>
+						<b-col>
+							<img class="m-3" src="../../assets/logoVermelha.png" alt="Logo Doação">
+						</b-col>
+					</b-row>
+					<b-row>
+						<b-col>
+							<img class="m-3" src="../../assets/check.png" alt="Logo Doação">
+						</b-col>
+					</b-row>
+					<b-row>
+						<b-col class="text-center">
+							<h4><strong>Parabéns!</strong></h4>
+							<p>
+								O seu agendamento foi concluído com
+								sucesso! Estaremos te esperando no
+								lugar, data e horário marcados!
+							</p>
+							<p>
+								Você pode estar ajudando a salvar a
+								vida de uma pessoa! Estamos orgulhosos!
+							</p>
+						</b-col>
+					</b-row>
+					<b-row>
+						<b-col>
+							<b-button 
+								class="btnHome"
+								@click="voltaHome"
+								>
+								Voltar para a home
+							</b-button>
+						</b-col>
+					</b-row>
+				</div>
+      </b-container>
+    </b-modal>
   </div>
 </template>
 
@@ -135,8 +180,15 @@ export default {
       return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     },
     confirmarAgendamento() {
+			this.$refs["modalDesenho"].show();
       this.agendamentoConfirmado = true;
     },
+    hideModal() {
+			this.$refs["modalDesenho"].hide();
+    },
+    voltaHome() {
+			this.$router.push('/home'); 
+		},
 
 		abreTelaRequisitos() {
 			this.$router.push('/requisitos');
@@ -146,10 +198,22 @@ export default {
 </script>
 
 <style scoped>
-* {
-	text-align: left;
-	/* color: white; */
+
+.btnHome {
+	background-color: #EE3C3C
 }
+
+.btnHome:hover {
+	background-color: #EE3C3C
+}
+
+.background {
+	display: flex;
+	text-align: center !important; 
+	width: 60%;
+	flex-direction: column
+}
+
 .fundo {
   background-color: red;
   width: 100%;
@@ -162,6 +226,10 @@ export default {
 .btn {
 	background-color: #952626;
 	border: 0;
+}
+
+.btn:hover {
+	background-color: #952626;
 }
 
 .formulario {

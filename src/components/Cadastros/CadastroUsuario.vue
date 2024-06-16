@@ -11,7 +11,7 @@
 		</div>
 		<div class="cor-branca02">
 			<img class="logo"
-				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZKoaLpBs7nqpKlIquVnOSvNM-bJe78FmymgCOCguzrFfwIJwQjk9F6gu59udz8wbqB0ULTUlVRg9oRZWFsdhBUELgH3Oze3Ws=w1440-h731-rw-v1"
+				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbUv5wgvUgYyvcVX-IUlumjx501MOxaNJdltgWr5LV-uoZwMhOkQNQ5YtI3FDaSnDsM24Q2UCRecf3SgOZyoFTOKg0oD4NRNmY=w1920-h947-rw-v1"
 				alt="Imagem" />
 		</div>
 
@@ -24,7 +24,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Nome Completo</h3>
-								<b-form-input type="text" class="custom-input" id="input-none" :state="null" v-model="cadastro.name"
+								<b-form-input type="text" class="inputs-brancos" id="input-none" :state="null" v-model="cadastro.name"
 									placeholder="Inserir nome">
 								</b-form-input>
 							</b-col>
@@ -34,7 +34,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Celular</h3>
-								<b-form-input type="text" class="custom-input" id="input-valid" :state="null"
+								<b-form-input type="text" class="inputs-brancos" id="input-valid" :state="null"
 									v-model="cadastro.telefone" placeholder="() _ _ _ _-_ _ _ _"></b-form-input>
 							</b-col>
 						</b-row>
@@ -42,7 +42,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Email</h3>
-								<b-form-input type="text" class="custom-input" id="input-valid" :state="null" v-model="cadastro.email"
+								<b-form-input type="text" class="inputs-brancos" id="input-valid" :state="null" v-model="cadastro.email"
 									placeholder="Inserir email"></b-form-input>
 							</b-col>
 						</b-row>
@@ -50,7 +50,7 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Senha</h3>
-								<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+								<b-form-input type="password" class="inputs-brancos" id="input-valid" :state="null"
 									v-model="cadastro.password" placeholder="Inserir senha"></b-form-input>
 							</b-col>
 						</b-row>
@@ -58,15 +58,19 @@
 						<b-row class="my-1">
 							<b-col md="8" offset-md="2">
 								<h3 class="nome-form">Confirmação senha</h3>
-								<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+								<b-form-input type="password" class="inputs-brancos" id="input-valid" :state="null"
 									v-model="cadastro.passwordConfirm" placeholder="Confirmar senha">
 								</b-form-input>
 							</b-col>
 						</b-row>
 
-						<div class="div-botao">
-								<button class="botao-avancar" @click="botaoApiAvancar">Avançar</button>
-						</div>
+						<b-row class="my-1">
+							<b-col md="8" offset-md="2">
+								<div class="div-botao">
+									<button class="botao-avancar" @click="botaoApiAvancar">Avançar</button>
+								</div>
+							</b-col>
+						</b-row>
 
 					</b-col>
 				</div>
@@ -90,10 +94,7 @@ export default {
 	},
 	methods: {
 		botaoApiAvancar() {
-			if(!this.cadastro.name || !this.cadastro.telefone || !this.cadastro.email || !this.cadastro.password || !this.cadastro.passwordConfirm) {
-				alert('Para prosseguir, é necessário preencher todos os campos!');
-			}
-
+			event.preventDefault();
 			fetch('http://localhost:8090/users', {
 				headers: {
 					'Content-Type': 'application/json'
@@ -108,29 +109,27 @@ export default {
 				})
 			})
 			.then(response => {
-				if (!response.ok) {
-					throw new Error('Erro ao enviar solicitação');
+				console.log("Resposta Completa: ",response)
+				if (response.status === 201) {
+					this.$router.push('/tipoSanguineo');
+				} else if (response.status === 400) {
+					alert("Gentileza preencher todos os campos.");
 				}
-				return response.json();
-			})
-			.then(data => {
-				console.log(data);
-				this.$router.push('/Home');
 			})
 			.catch(error => {
 				console.log('Erro ao enviar solicitação: ', error);
 			})
 		},
 		volta() {
-			this.$router.push('/home');
+			this.$router.push('/');
 		}
 	}
 };
 </script>
 
 <style scoped>
-.custom-input {
-	width: 500px;
+.inputs-brancos {
+	width: 100%;
 	height: 50px;
 	border-radius: 5px;
 	border: white;
@@ -167,7 +166,7 @@ export default {
 }
 
 .botao-volta {
-	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZzbM-uIb8_4nKlfC6CDUBm6a65ZDOf_PQ19mZOKGnh_HHR_VybzEqWwjsDYr9SP0izGPyEszeGrColHoAWCaercGOffbrzcQ=w1392-h778');
+	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbNCHTfF_kKbI3xCpOW-8wjkRBJCQ1ituKfiSZSffg8KgSIs2HKCx81O6AcxrV3lFRgqgrBi4mO0Qh23_aVViUTUEdCuSezaQ=w1920-h947');
 	background-size: 35px;
 	background-repeat: no-repeat;
 	background-color: white;
@@ -201,6 +200,7 @@ export default {
 	text-align: left;
 	width: 100%;
 	font-size: 20px;
+	margin-top: 10px;
 }
 
 .div-botao {
@@ -208,11 +208,11 @@ export default {
 }
 
 .botao-avancar {
-	width: 65%;
+	width: 100%;
 	height: 80px;
 	border: none;
 	color: white;
 	background-color: #952626;
-	border-radius: 5px !important;
+	border-radius: 5px;
 }
 </style>
