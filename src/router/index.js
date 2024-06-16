@@ -42,12 +42,12 @@ const routes = [
   },
   {
 		name: 'perfil',
-    path: '/perfiluser',
+    path: '/perfilUser',
     component: PerfilUser
   },
   {
 		name: 'perfil',
-    path: '/perfiledit',
+    path: '/perfilEdit',
     component: PerfilEdit
   },
 ]
