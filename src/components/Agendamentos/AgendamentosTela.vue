@@ -1,5 +1,15 @@
 <template>
-  <div class="fundo">
+	<div class="fundo">
+		<div class="div-info-usuarios">
+			<button @click="voltaHome" class="botao-volta">
+				<img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbNCHTfF_kKbI3xCpOW-8wjkRBJCQ1ituKfiSZSffg8KgSIs2HKCx81O6AcxrV3lFRgqgrBi4mO0Qh23_aVViUTUEdCuSezaQ=w1920-h947" alt="">
+			</button>
+			</div>
+			<div class="div-botao-voltar">
+				<button @click="infoUser" class="info-usuarios">
+					<img src="../../assets/infoUsuario.png" alt="">
+				</button>
+		</div>
     <div class="fundo_botao_requisitos">
       <div class="fundo_btn w-50 mb-5 p-3">
         <button @click="abreTelaRequisitos" id="botao_requsitos">Requisitos Básicos <br> para Doação</button>
@@ -190,6 +200,10 @@ export default {
 			this.$router.push('/home'); 
 		},
 
+    infoUser() {
+			this.$router.push('/perfilUser'); 
+		},
+
 		abreTelaRequisitos() {
 			this.$router.push('/requisitos');
 		}
@@ -221,6 +235,33 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.botao-volta > img {
+	margin-top: 25px;
+	margin-left: 25px;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 0;
+	left: 0;
+	background-size: 35px;
+	background-color: white;
+	border-radius: 50%;
+}
+
+.info-usuarios > img {
+	margin-top: 90px;
+	margin-left: 25px;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 0;
+	left: 0;
+	background-size: 35px;
+	background-color: white;
+	border-radius: 50%;
 }
 
 .btn {

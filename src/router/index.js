@@ -40,22 +40,18 @@ const routes = [
 		component: RedefiniSenha
 	},
   {
-		name: 'agendamentos',
     path: '/agendamentos',
     component: Agendamentos
   },
   {
-		name: 'agendamentos',
     path: '/requisitos',
     component: RequisitosBasicos
   },
   {
-		name: 'perfil',
     path: '/perfilUser',
     component: PerfilUser
   },
   {
-		name: 'perfil',
     path: '/perfilEdit',
     component: PerfilEdit
   },
