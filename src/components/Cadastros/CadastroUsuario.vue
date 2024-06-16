@@ -11,7 +11,7 @@
 		</div>
 		<div class="cor-branca02">
 			<img class="logo"
-				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZKoaLpBs7nqpKlIquVnOSvNM-bJe78FmymgCOCguzrFfwIJwQjk9F6gu59udz8wbqB0ULTUlVRg9oRZWFsdhBUELgH3Oze3Ws=w1440-h731-rw-v1"
+				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbUv5wgvUgYyvcVX-IUlumjx501MOxaNJdltgWr5LV-uoZwMhOkQNQ5YtI3FDaSnDsM24Q2UCRecf3SgOZyoFTOKg0oD4NRNmY=w1920-h947-rw-v1"
 				alt="Imagem" />
 		</div>
 
@@ -121,7 +121,7 @@ export default {
 			})
 		},
 		volta() {
-			this.$router.push('/home');
+			this.$router.push('/');
 		}
 	}
 };
@@ -166,7 +166,7 @@ export default {
 }
 
 .botao-volta {
-	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZzbM-uIb8_4nKlfC6CDUBm6a65ZDOf_PQ19mZOKGnh_HHR_VybzEqWwjsDYr9SP0izGPyEszeGrColHoAWCaercGOffbrzcQ=w1392-h778');
+	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbNCHTfF_kKbI3xCpOW-8wjkRBJCQ1ituKfiSZSffg8KgSIs2HKCx81O6AcxrV3lFRgqgrBi4mO0Qh23_aVViUTUEdCuSezaQ=w1920-h947');
 	background-size: 35px;
 	background-repeat: no-repeat;
 	background-color: white;

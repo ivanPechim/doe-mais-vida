@@ -9,6 +9,7 @@ import RequisitosBasicos from '../components/Agendamentos/RequisitosBasicos.vue'
 import PerfilUser from '../components/Perfil/PerfilUser.vue';
 import PerfilEdit from '../components/Perfil/PerfilEdit.vue';
 import TipoSanguineo from '../components/Cadastros/TipoSanguineo.vue';
+import RedefiniSenha from '../components/Cadastros/RedefiniSenha.vue';
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,10 @@ const routes = [
 	{
 		path: '/recuperarConta',
 		component: RecuperaConta
+	},
+	{
+		path: '/redefinirSenha',
+		component: RedefiniSenha
 	},
   {
 		name: 'agendamentos',
