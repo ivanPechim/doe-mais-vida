@@ -64,9 +64,13 @@
 							</b-col>
 						</b-row>
 
-						<div class="div-botao">
-								<button class="botao-avancar" @click="botaoApiAvancar">Avançar</button>
-						</div>
+						<b-row class="my-1">
+							<b-col md="8" offset-md="2">
+								<div class="div-botao">
+									<button class="botao-avancar" @click="botaoApiAvancar">Avançar</button>
+								</div>
+							</b-col>
+						</b-row>
 
 					</b-col>
 				</div>
@@ -90,10 +94,7 @@ export default {
 	},
 	methods: {
 		botaoApiAvancar() {
-			if(!this.cadastro.name || !this.cadastro.telefone || !this.cadastro.email || !this.cadastro.password || !this.cadastro.passwordConfirm) {
-				alert('Para prosseguir, é necessário preencher todos os campos!');
-			}
-
+			event.preventDefault();
 			fetch('http://localhost:8090/users', {
 				headers: {
 					'Content-Type': 'application/json'
@@ -108,14 +109,12 @@ export default {
 				})
 			})
 			.then(response => {
-				if (!response.ok) {
-					throw new Error('Erro ao enviar solicitação');
+				console.log("Resposta Completa: ",response)
+				if (response.status === 201) {
+					this.$router.push('/tipoSanguineo');
+				} else if (response.status === 400) {
+					alert("Gentileza preencher todos os campos.");
 				}
-				return response.json();
-			})
-			.then(data => {
-				console.log(data);
-				this.$router.push('/Home');
 			})
 			.catch(error => {
 				console.log('Erro ao enviar solicitação: ', error);
@@ -130,7 +129,7 @@ export default {
 
 <style scoped>
 .inputs-brancos {
-	width: 600px;
+	width: 100%;
 	height: 50px;
 	border-radius: 5px;
 	border: white;
@@ -209,7 +208,7 @@ export default {
 }
 
 .botao-avancar {
-	width: 600px;
+	width: 100%;
 	height: 80px;
 	border: none;
 	color: white;
