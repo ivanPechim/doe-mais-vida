@@ -1,67 +1,73 @@
 <template>
-	<b-container>
-		<div class="bg-VermelhoTopo">
-			<div class="bg-Vermelho m-0">
-				<b-row>
-					<b-col class="m-3">
-						<h3>HOME</h3>
-					</b-col>
-				</b-row>
-				<b-row>
-					<b-col
-						
-						class="d-flex justify-content-center m-3"
-					>
-						<div class="caixa">
-							<p class="">
-								20976
-								<br>
-								Precisam de um doador
-							</p>
-							<b-button
-								@click="pagQueroDoar"
-								type="button"
-								class="btn"
-								variant="light"
-							>
-								Quero doar
-							</b-button>
-						</div>
-					</b-col>
-				</b-row>
-			</div>
-			<div class="bg-Branco">
-				<b-row class="m-1">
-					<b-col>HISTORIAS DE USUARIOS</b-col>
-				</b-row>
-				<b-row v-for="person in persons" :key="person.id">
-					<div>
-						<h3 class="texto">{{ person.name }} ✅<br>
-							<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
-						</h3>
-						<br>
-						<p>
-							<img 
-								class="img" 
-								alt="img"
-								:src="getImageUrl(person.imgUrl)"
-							>
+	<div class="vermelhor-topo">
+
+
+		<div class="primeiro-vermelho">
+
+			<b-row>
+				<b-col class="d-flex justify-content-center m-3">
+					<div class="caixa">
+						<p class="quantidade">
+							20976
+							<br>
+							Precisam de <br>um doador
 						</p>
-						<p class="texto">
-							It is a long established fact that a reader will be distracted by the readable content of a page when looking
-							at its layout. the point of using Lorem
-						</p>
+						<b-button @click="pagQueroDoar" type="button" class="btn" variant="light">
+							Quero doar
+						</b-button>
 					</div>
-				</b-row>
-			</div>
+				</b-col>
+			</b-row>
 		</div>
-	</b-container>
+
+
+
+
+
+		<div class="bg-Branco">
+				<b-row class="historia-usuario">
+					<b-col>
+						<strong>
+							HISTORIAS DE USUARIOS
+						</strong>
+					</b-col>
+				</b-row>
+
+				<div>
+					<b-row v-for="person in persons" :key="person.id">
+						<div>
+							<h3 class="texto">{{ person.name }} ✅<br>
+								<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
+							</h3>
+							<br>
+							<p>
+								<img 
+									class="img" 
+									alt="img"
+									:src="getImageUrl(person.imgUrl)"
+								>
+							</p>
+							<p class="texto">
+								It is a long established fact that a reader will be distracted by the readable content of a page when looking
+								at its layout. the point of using Lorem
+							</p>
+						</div>
+					</b-row>
+
+				</div>
+			</div>
+
+
+
+
+
+	</div>
 </template>
 
 
 <script>
 
-import jsons from "../../../persons.example.json" 
+import jsons from "../../../persons.example.json"
 
 export default {
 	name: "LoginLogar",
@@ -72,9 +78,9 @@ export default {
 	},
 	methods: {
 		getImageUrl(imgUrl) {
-      // eslint-disable-next-line no-undef
-      return require(`../../../public/persons/${imgUrl}.jpg`);
-    },
+			// eslint-disable-next-line no-undef
+			return require(`../../../public/persons/${imgUrl}.jpg`);
+		},
 		pagQueroDoar() {
 			this.$router.push('/agendamentos');
 		}
@@ -84,70 +90,70 @@ export default {
 </script>
 
 <style scoped>
-*,p {
+.vermelhor-topo {
+	width: 100%;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 }
 
+.primeiro-vermelho {
+	width: 100vw;
+	height: 20vh;
+	background-color: red;
+}
+
+
 .caixa {
 	width: 25%;
 	height: 7em;
-	border-radius: 30px;
+	border-radius: 10px;
 	background-color: rgb(244, 84, 84);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
 
+.quantidade {
+	color: white;
+}
+
+
 .btn {
 	width: 150px;
 	height: 50px;
+	border-radius: 30px;
 }
 
-.img {
+
+.historia-usuario {
+	padding: 20px;
+	background-color: #F2F2F2;
+}
+
+/* .img {
 	width: 50%;
 	height: 50%;
 	background-color: white;
-}
+} */
 
-.img-Perfil {
+/* .img-Perfil {
 	width: 1580px;
 	height: 1121px;
-}
+} */
 
-.bg-Vermelho {
-	background-color: rgb(236, 60, 60);
-	color: white;
-	width: 100%;
-	height: 100%;
-}
-
-.bg-VermelhoTopo {
-	background-color: rgb(236, 60, 60);
-	color: white;
-	width: 100%;
-	height: 100%;
-}
-
-
-.bg-Branco {
-	background-color: white;
-	color: black;
-}
 
 .texto {
-	font-size: 20px;
-	text-align: left;
+	margin-top: 30px;
+	/* font-size: 20px; */
+	/* text-align: left; */
+
 }
 
 .texto2 {
-	text-align: left;
+	/* text-align: left; */
 
-	font-size: 15px;
-	color: gray;
+	/* font-size: 15px; */
 }
 
-.letraVermelha {
-	color: rgb(236, 60, 60);
-}
 </style>

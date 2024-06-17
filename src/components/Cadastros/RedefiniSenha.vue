@@ -12,26 +12,26 @@
 				<h1 class="primeiro-frase">Redefinir Senha</h1>
 
 				<b-row>
-					<b-col md="6" offset="3">
+					<b-col md="6" offset-md="3">
 						<h5 class="frase-nome">Nova senha:*</h5>
-						<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+						<b-form-input type="password" class="custom-input" id="nova-senha" v-model="novaSenha"
 							placeholder="Senha"></b-form-input>
 					</b-col>
 				</b-row>
 
 				<b-row class="ajuste-inputs">
-					<b-col md="6" offset="3">
+					<b-col md="6" offset-md="3">
 						<h5 class="frase-nome">Confirmar a nova senha:*</h5>
-						<b-form-input type="password" class="custom-input" id="input-valid" :state="null"
+						<b-form-input type="password" class="custom-input" id="confirmar-senha" v-model="confirmarSenha"
 							placeholder="Confirmar senha"></b-form-input>
 					</b-col>
 				</b-row>
 
 				<b-row>
-					<b-col md="6" offset="3">
+					<b-col md="6" offset-md="3">
 						<div class="button-confirm">
 							<router-link to="/">
-								<button class="proximo-botao">Confirmar</button>
+								<button class="proximo-botao" @click="confirmarSenhaFunc">Confirmar</button>
 							</router-link>
 						</div>
 					</b-col>
@@ -45,16 +45,31 @@
 </template>
 
 <script>
+import { BRow, BCol, BFormInput } from 'bootstrap-vue';
+
 export default {
-	name: 'redefinirSenha',
+	name: 'RedefinirSenha',
+	components: {
+		BRow,
+		BCol,
+		BFormInput
+	},
 	data() {
 		return {
-
+			novaSenha: '',
+			confirmarSenha: ''
 		}
 	},
 	methods: {
 		volta() {
 			this.$router.push('/');
+		},
+		confirmarSenhaFunc() {
+			if (this.novaSenha !== this.confirmarSenha) {
+				alert('As senhas não coincidem');
+			} else {
+				// Lógica para redefinir a senha
+			}
 		}
 	}
 }
