@@ -30,7 +30,9 @@
 				<b-row>
 					<b-col md="6" offset="3">
 						<div class="button-confirm">
-							<button class="proximo-botao">Confirmar</button>
+							<router-link to="/">
+								<button class="proximo-botao">Confirmar</button>
+							</router-link>
 						</div>
 					</b-col>
 				</b-row>

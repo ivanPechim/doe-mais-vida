@@ -20,7 +20,9 @@
 					<b-row>
 						<b-col md="6" offset-md="3">
 							<div class="proximo-button">
-								<button class="botao-proximo">Próximo</button>
+								<router-link to="/redefinirSenha">
+									<button class="botao-proximo">Próximo</button>
+								</router-link>
 							</div>
 						</b-col>
 					</b-row>

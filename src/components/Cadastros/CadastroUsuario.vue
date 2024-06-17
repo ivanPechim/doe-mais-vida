@@ -111,7 +111,7 @@ export default {
 			.then(response => {
 				console.log("Resposta Completa: ",response)
 				if (response.status === 201) {
-					this.$router.push('/home');
+					this.$router.push('/');
 				} else if (response.status === 400) {
 					alert("Gentileza preencher todos os campos.");
 				}

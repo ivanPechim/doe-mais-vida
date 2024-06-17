@@ -132,7 +132,9 @@
 			</b-row>
 		
 		<div class="botao">
-			<button class="botao_salvar" @click="botaoApiSalvar">Salvar</button>
+			<router-link to="/perfilUser">
+				<button class="botao_salvar" @click="botaoApiSalvar">Salvar</button>
+			</router-link>
 		</div>
 
 			
@@ -279,7 +281,10 @@ export default {
 	margin-bottom: 50px;
 }
 
-
+.botao_salvar {
+	background-color: white;
+	border-radius: 10px;
+}
 
 
 
