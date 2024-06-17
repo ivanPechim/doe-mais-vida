@@ -8,7 +8,6 @@ import Agendamentos from '../components/Agendamentos/AgendamentosTela.vue';
 import RequisitosBasicos from '../components/Agendamentos/RequisitosBasicos.vue';
 import PerfilUser from '../components/Perfil/PerfilUser.vue';
 import PerfilEdit from '../components/Perfil/PerfilEdit.vue';
-import TipoSanguineo from '../components/Cadastros/TipoSanguineo.vue';
 import RedefiniSenha from '../components/Cadastros/RedefiniSenha.vue';
 
 Vue.use(VueRouter)
@@ -26,10 +25,6 @@ const routes = [
 	{
 		path: '/cadastroUsuario',
 		component: CadastroUsuario
-	},
-	{
-		path: '/tipoSanguineo',
-		component: TipoSanguineo
 	},
 	{
 		path: '/recuperarConta',
