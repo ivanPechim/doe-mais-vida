@@ -1,14 +1,15 @@
 <template>
     <div class="fundo">
         <div class="cor_branca_01">
-
+			<div class="div-botao-voltar">
+				<button @click="volta" class="botao-volta"></button>
+			</div>
         </div>
         <div class="cor_branca_02">
             <img class="logo" 
             src="https://ucarecdn.com/61f9038f-20c2-4520-bafe-d0a0bafe8564/-/preview/1000x854/" alt="imagem">
 
-				<div class="format_frases">
-					<h1>Alterar Imagem</h1>
+				<div class="format_frases">					
 						<img class="alterar_Imagem" 
 						src="./Captura de tela 2024-06-16 120019.png" alt="imagem">
 				</div>
@@ -57,7 +58,7 @@
 
 			<b-row class="m_02">
 				<b-cow  md="8" offset-md="2">
-					<h3 class="nome_form_2">País de Residência</h3>
+					<h3 class="nome_form_2">País</h3>
 					<b-form-input type="text" class="inputs-brancos" id="input-none" :state="null"
 									placeholder="Digite o País">
 					</b-form-input>
@@ -66,7 +67,7 @@
 
 			<b-row class="m_02">
 				<b-cow  md="8" offset-md="2">
-					<h3 class="nome_form_2">Cidade / Município</h3>
+					<h3 class="nome_form_2">Cidade</h3>
 					<b-form-input type="text" class="inputs-brancos" id="input-none" :state="null"
 									placeholder="Cidade ou Município">
 					</b-form-input>
@@ -145,7 +146,11 @@
 
 <script>
 export default {
-    
+    methods: {
+		volta() {
+			this.$router.push('/PerfilUser');
+		}
+	}
 }
 </script>
 
@@ -183,20 +188,18 @@ export default {
 .format_frases {
 	text-align: left;
 	color: red;
-	padding-right: 40px;
-	right: 60%;
+	left: 10%;
+	top: 7%;
 	position: absolute;
 	display: flex;
 	z-index: 2;
+	width: 20%;
 	
 }
 
 .alterar_Imagem{
 	width: 40%;
-	height: 80%;
-	margin-right: 5px;
-	display: flex;
-	position:static;
+	height: 30%;
 }
 
 .m_01 {
@@ -220,7 +223,7 @@ export default {
 	text-align: right;
 	width: 250%;
 	font-size: 20px;
-	margin-top: 3px;
+	margin-top: 9px;
 }
 
 .formulario {
@@ -249,6 +252,8 @@ export default {
 	top: 30%;
 	display: flex;
 	flex-direction: column;
+	padding-left: 100px;
+	
 }
 
 .nome_form {
@@ -284,6 +289,20 @@ export default {
 .botao_salvar {
 	background-color: white;
 	border-radius: 10px;
+}
+
+.div-botao-voltar {
+	padding: 28px;
+	width: 20%;
+	height: 42%;
+	padding-left: 0;
+}
+
+.botao-volta {
+	background-image: url('https://ucarecdn.com/cf00dcb9-1be8-46c6-afce-7c9c83dec2b9/-/preview/34x37/');
+	background-size: 35px;
+	background-repeat: no-repeat;
+	background-color: white;
 }
 
 
