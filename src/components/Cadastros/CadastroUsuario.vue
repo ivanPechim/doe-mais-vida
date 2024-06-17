@@ -11,7 +11,7 @@
 		</div>
 		<div class="cor-branca02">
 			<img class="logo"
-				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbUv5wgvUgYyvcVX-IUlumjx501MOxaNJdltgWr5LV-uoZwMhOkQNQ5YtI3FDaSnDsM24Q2UCRecf3SgOZyoFTOKg0oD4NRNmY=w1920-h947-rw-v1"
+				src="https://ucarecdn.com/61f9038f-20c2-4520-bafe-d0a0bafe8564/-/preview/1000x854/"
 				alt="Imagem" />
 		</div>
 
@@ -111,7 +111,7 @@ export default {
 			.then(response => {
 				console.log("Resposta Completa: ",response)
 				if (response.status === 201) {
-					this.$router.push('/tipoSanguineo');
+					this.$router.push('/home');
 				} else if (response.status === 400) {
 					alert("Gentileza preencher todos os campos.");
 				}
@@ -166,7 +166,7 @@ export default {
 }
 
 .botao-volta {
-	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbNCHTfF_kKbI3xCpOW-8wjkRBJCQ1ituKfiSZSffg8KgSIs2HKCx81O6AcxrV3lFRgqgrBi4mO0Qh23_aVViUTUEdCuSezaQ=w1920-h947');
+	background-image: url('https://ucarecdn.com/cf00dcb9-1be8-46c6-afce-7c9c83dec2b9/-/preview/34x37/');
 	background-size: 35px;
 	background-repeat: no-repeat;
 	background-color: white;

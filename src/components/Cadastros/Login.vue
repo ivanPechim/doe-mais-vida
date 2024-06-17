@@ -3,7 +3,7 @@
 		<div class="caixa-red">
 
 			<img
-				src="https://lh3.googleusercontent.com/drive-viewer/AKGpihYixnn4eaGcvmb8GPHBKGDDU0WWry9IdLgmQmmRMoo5zPQ6L6w67UXrOHyqbph3MTeUgM5TlIaiJuHqoohY8gFRolxn01CMLxc=w1872-h958"
+				src="https://ucarecdn.com/4f104287-ec41-4efe-a3a4-8826a54f3ec2/-/preview/308x263/"
 				alt="Logo do projeto">
 
 			<div class="caixa-escura">

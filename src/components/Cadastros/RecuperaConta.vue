@@ -4,7 +4,7 @@
 			<div class="div-botao-voltar-logo">
 				<button @click="volta" class="botao-volta"></button>
 				<img
-					src="https://lh3.googleusercontent.com/drive-viewer/AKGpihYixnn4eaGcvmb8GPHBKGDDU0WWry9IdLgmQmmRMoo5zPQ6L6w67UXrOHyqbph3MTeUgM5TlIaiJuHqoohY8gFRolxn01CMLxc=w1872-h958"
+					src="https://ucarecdn.com/4f104287-ec41-4efe-a3a4-8826a54f3ec2/-/preview/308x263/"
 					alt="Logo Doação">
 			</div>
 			<div class="caixa-escura">
@@ -128,7 +128,7 @@ input {
 }
 
 .botao-volta {
-	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihaEZ_YjWdSH6KXHzp9Zerg-Zz3OntkaM-fE4TzvsgwJ46eck2DisOROLbd1s0gKCiFqIPCasKwhLDXn7CN7vLEsI92NKzmRkDk=w1920-h947');
+	background-image: url('https://ucarecdn.com/04b02b27-4531-476b-951d-4df0d0ff1a74/-/preview/34x46/');
 	background-size: 40px;
 	background-repeat: no-repeat;
 	background-color: #E53A3A;

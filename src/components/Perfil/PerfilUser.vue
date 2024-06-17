@@ -13,7 +13,7 @@
 		</div>
 		<div class="cor-branca02">
 			<img class="logo"
-				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZKoaLpBs7nqpKlIquVnOSvNM-bJe78FmymgCOCguzrFfwIJwQjk9F6gu59udz8wbqB0ULTUlVRg9oRZWFsdhBUELgH3Oze3Ws=w1440-h731-rw-v1"
+				src="https://ucarecdn.com/61f9038f-20c2-4520-bafe-d0a0bafe8564/-/preview/1000x854/"
 				alt="Imagem" />
 		</div>
 		<div class="info-branco">
