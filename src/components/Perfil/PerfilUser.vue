@@ -5,10 +5,10 @@
 				<button @click="volta" class="botao-volta"></button>
 			</div>
 			<div class="cumprimentos">
-				<h1>Olá, {{ cadastro.name }}</h1>
+				<h1>Olá, Julia Martins Andrade</h1>
 			</div>
 			<div class="foto-perfil">
-				<img class="foto-config">
+				<img class="foto-config" src="">
 			</div>
 		</div>
 		<div class="cor-branca02">
@@ -19,7 +19,7 @@
 		<div class="info-branco">
 			<form action="">
 				<div id="inputs-container">
-					<button class="botao-editar" @click="goToCadastroUsuario"><i class="fas fa-edit"></i></button>
+					<button class="botao-editar" @click="goToPerfilEdit"><i class="fas fa-edit"></i></button>
 				</div>
 				<hr>
 				<div class="info-pessoal">
@@ -31,8 +31,8 @@
 						<h1>Cidade:</h1>
 					</div>
 					<div class="right">
-						<h5>Breno Jesus Andrade</h5>
-						<h5>Breno.Jesus.rade22@gmail.com</h5>
+						<h5>Julia Martins Andrade</h5>
+						<h5>Julia.martins.rade22@gmail.com</h5>
 						<h5>(31)98224-5689</h5>
 						<h5>Brasil</h5>
 						<h5>Contagem</h5>
@@ -59,7 +59,7 @@ export default {
 		volta() {
 			this.$router.push('/home');
 		},
-		goToCadastroUsuario() {
+		goToPerfilEdit() {
 			this.$router.push('/perfilEdit');
 		}
 	}
@@ -101,7 +101,7 @@ export default {
 }
 
 .botao-volta {
-	background-image: url('https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZzbM-uIb8_4nKlfC6CDUBm6a65ZDOf_PQ19mZOKGnh_HHR_VybzEqWwjsDYr9SP0izGPyEszeGrColHoAWCaercGOffbrzcQ=w1392-h778');
+	background-image: url('https://ucarecdn.com/cf00dcb9-1be8-46c6-afce-7c9c83dec2b9/-/preview/34x37/');
 	background-size: 35px;
 	background-repeat: no-repeat;
 	background-color: white;
@@ -110,7 +110,7 @@ export default {
 .logo {
 	width: 35%;
 	height: 50%;
-	margin-top: 60px;
+	margin-top: 30px;
 	margin-left: 70px;
 }
 
@@ -135,6 +135,9 @@ export default {
 	display: flex;
 	border-radius: 80px;
 	background-color: red;
+    background-image: url(Captura\ de\ tela\ 2024-06-16\ 120019.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .info-branco {
