@@ -36,7 +36,7 @@
 					<b-col cols="12">
 						<div class="user-story">
 							<div class="display">
-								<img class="imagem" src="https://ucarecdn.com/f4797e18-b798-414d-b474-779ced1d6433/-/preview/72x72/"
+								<img class="imagem" :src="getImageUrl(person.imgUrlPerfil)"
 									alt="">
 								<h3 class="texto">{{ person.name }} ✅<br>
 									<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
@@ -47,9 +47,7 @@
 								<img class="img" alt="img" :src="getImageUrl(person.imgUrl)">
 							</p>
 							<p class="texto-historia">
-								It is a long established fact that a reader will be distracted by the readable content of a page when
-								looking
-								at its layout. the point of using Lorem
+								{{ person.persona }}
 							</p>
 						</div>
 					</b-col>
@@ -176,5 +174,6 @@ export default {
 
 .imagem {
 	margin-right: 20px;
+	border-radius: 50%;
 }
 </style>
