@@ -1,9 +1,6 @@
 <template>
 	<div class="vermelhor-topo">
-
-
 		<div class="primeiro-vermelho">
-
 			<b-row>
 				<b-col class="d-flex justify-content-center m-3">
 					<div class="caixa">
@@ -20,53 +17,44 @@
 			</b-row>
 		</div>
 
-
-
-
-
 		<div class="bg-Branco">
-				<b-row class="historia-usuario">
-					<b-col>
-						<strong>
-							HISTORIAS DE USUARIOS
-						</strong>
-					</b-col>
-				</b-row>
+			<b-row class="historia-usuario">
+				<b-col>
+					<strong>
+						HISTORIAS DE USUARIOS
+					</strong>
+				</b-col>
+			</b-row>
 
-				<div>
-					<b-row v-for="person in persons" :key="person.id">
-						<div>
-							<h3 class="texto">{{ person.name }} ✅<br>
-								<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
-							</h3>
+			<div class="user-stories">
+				<b-row v-for="person in persons" :key="person.id" class="mb-4">
+					<b-col cols="12">
+						<div class="user-story">
+							<div class="display">
+								<img class="imagem" src="https://ucarecdn.com/f4797e18-b798-414d-b474-779ced1d6433/-/preview/72x72/"
+									alt="">
+								<h3 class="texto">{{ person.name }} ✅<br>
+									<h5 class="texto2">🕗6m ago 📍Hemominas</h5>
+								</h3>
+							</div>
 							<br>
 							<p>
-								<img 
-									class="img" 
-									alt="img"
-									:src="getImageUrl(person.imgUrl)"
-								>
+								<img class="img" alt="img" :src="getImageUrl(person.imgUrl)">
 							</p>
-							<p class="texto">
-								It is a long established fact that a reader will be distracted by the readable content of a page when looking
+							<p class="texto-historia">
+								It is a long established fact that a reader will be distracted by the readable content of a page when
+								looking
 								at its layout. the point of using Lorem
 							</p>
 						</div>
-					</b-row>
-
-				</div>
+					</b-col>
+				</b-row>
 			</div>
-
-
-
-
-
+		</div>
 	</div>
 </template>
 
-
 <script>
-
 import jsons from "../../../persons.example.json"
 
 export default {
@@ -86,26 +74,24 @@ export default {
 		}
 	}
 }
-
 </script>
 
 <style scoped>
 .vermelhor-topo {
 	width: 100%;
-	height: 100%;
 	margin: 0;
 	padding: 0;
 }
 
 .primeiro-vermelho {
-	width: 100vw;
+	width: 100%;
 	height: 20vh;
 	background-color: red;
 }
 
-
 .caixa {
-	width: 25%;
+	width: 100%;
+	max-width: 300px;
 	height: 7em;
 	border-radius: 10px;
 	background-color: rgb(244, 84, 84);
@@ -118,42 +104,53 @@ export default {
 	color: white;
 }
 
-
 .btn {
 	width: 150px;
 	height: 50px;
 	border-radius: 30px;
 }
 
+.bg-Branco {
+	padding: 20px;
+	background-color: #F2F2F2;
+}
 
 .historia-usuario {
 	padding: 20px;
 	background-color: #F2F2F2;
 }
 
-/* .img {
-	width: 50%;
-	height: 50%;
-	background-color: white;
-} */
+.user-stories {
+	padding: 0 15px;
+}
 
-/* .img-Perfil {
-	width: 1580px;
-	height: 1121px;
-} */
-
+.user-story {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+}
 
 .texto {
+	text-align: left;
 	margin-top: 30px;
-	/* font-size: 20px; */
-	/* text-align: left; */
-
 }
 
 .texto2 {
-	/* text-align: left; */
-
-	/* font-size: 15px; */
+	/* text-align: center; */
+	font-size: 15px;
 }
 
+.img {
+	width: 100%;
+	height: auto;
+	border-radius: 40px 40px 0 0;
+}
+
+.display {
+	display: flex;
+}
+
+.imagem {
+	margin-right: 20px;
+}
 </style>

@@ -133,9 +133,7 @@
 			</b-row>
 		
 		<div class="botao">
-			<router-link to="/perfilUser">
-				<button class="botao_salvar" @click="botaoApiSalvar">Salvar</button>
-			</router-link>
+				<button class="botao_salvar" @click="volta">Salvar</button>
 		</div>
 
 			
