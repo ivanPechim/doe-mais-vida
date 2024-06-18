@@ -2,13 +2,13 @@
 	<div class="fundo">
 		<div class="div-info-usuarios">
 			<button @click="voltaHome" class="botao-volta">
-				<img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbNCHTfF_kKbI3xCpOW-8wjkRBJCQ1ituKfiSZSffg8KgSIs2HKCx81O6AcxrV3lFRgqgrBi4mO0Qh23_aVViUTUEdCuSezaQ=w1920-h947" alt="">
+				<img	src="https://ucarecdn.com/04b02b27-4531-476b-951d-4df0d0ff1a74/-/preview/34x46/" alt="">
 			</button>
-			</div>
-			<div class="div-botao-voltar">
-				<button @click="infoUser" class="info-usuarios">
-					<img src="../../assets/infoUsuario.png" alt="">
-				</button>
+		</div>
+		<div class="div-botao-voltar">
+			<button @click="infoUser" class="info-usuarios">
+				<img src="../../assets/infoUsuario.png" alt="">
+			</button>
 		</div>
     <div class="fundo_botao_requisitos">
       <div class="fundo_btn w-50 mb-5 p-3">
@@ -247,7 +247,6 @@ export default {
 	top: 0;
 	left: 0;
 	background-size: 35px;
-	background-color: white;
 	border-radius: 50%;
 }
 
@@ -260,8 +259,6 @@ export default {
 	top: 0;
 	left: 0;
 	background-size: 35px;
-	background-color: white;
-	border-radius: 50%;
 }
 
 .btn {

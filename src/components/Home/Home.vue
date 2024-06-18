@@ -1,5 +1,10 @@
 <template>
 	<div class="vermelhor-topo">
+		<button
+			@click="infoUser" 
+			class="button-volta"
+		>
+		</button>
 		<div class="primeiro-vermelho">
 			<b-row>
 				<b-col class="d-flex justify-content-center m-3">
@@ -71,7 +76,10 @@ export default {
 		},
 		pagQueroDoar() {
 			this.$router.push('/agendamentos');
-		}
+		},
+		infoUser() {
+			this.$router.push('/perfilUser');
+		},
 	}
 }
 </script>
@@ -81,6 +89,22 @@ export default {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+}
+.teste {
+	cursor: pointer;
+}
+.button-volta {
+	background-image: url("../../assets/infoUsuario.png");
+	background-color: red;
+	background-repeat: no-repeat;
+	align-items: center;
+	position: absolute;
+	left: 0;
+	margin: 10px;
+	padding: 0;
+	width: 72px;
+	height: 72px;
+	z-index: 100;
 }
 
 .primeiro-vermelho {

@@ -50,10 +50,8 @@
 export default {	
 	methods: {
 		volta() {
-    if (this.$route.path == '/PerfilUser') {
-      this.$router.push('/Home');
-    }
-  },
+			this.$router.push('/Home');
+		},
 		goToPerfilEdit() {
 			this.$router.push('/perfilEdit');
 		}
