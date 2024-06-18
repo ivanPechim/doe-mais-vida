@@ -1,13 +1,11 @@
 <template>
 	<div class="fundo">
 		<div class="div-info-usuarios">
-			<button @click="voltaHome" class="botao-volta">
-				<img	src="https://ucarecdn.com/04b02b27-4531-476b-951d-4df0d0ff1a74/-/preview/34x46/" alt="">
+			<button @click="voltaHome" class="button-volta">
 			</button>
 		</div>
 		<div class="div-botao-voltar">
-			<button @click="infoUser" class="info-usuarios">
-				<img src="../../assets/infoUsuario.png" alt="">
+			<button @click="infoUser" class="button-infoUsuario">
 			</button>
 		</div>
     <div class="fundo_botao_requisitos">
@@ -237,28 +235,35 @@ export default {
   align-items: center;
 }
 
-
-.botao-volta > img {
+.button-volta {
+	background-image: url("https://ucarecdn.com/04b02b27-4531-476b-951d-4df0d0ff1a74/-/preview/34x46/");
+	background-color: red;
+	background-repeat: no-repeat;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
 	margin-top: 25px;
 	margin-left: 25px;
-	position: absolute;
 	width: 50px;
 	height: 50px;
-	top: 0;
-	left: 0;
-	background-size: 35px;
-	border-radius: 50%;
+	z-index: 100;
 }
 
-.info-usuarios > img {
-	margin-top: 90px;
-	margin-left: 25px;
+.button-infoUsuario {
+	background-image: url("../../assets/infoUsuario.png");
+	background-color: red;
+	background-repeat: no-repeat;
+	background-size: 50px;
+
 	position: absolute;
-	width: 50px;
-	height: 50px;
 	top: 0;
 	left: 0;
-	background-size: 35px;
+	margin-top: 90px;
+	margin-left: 25px;
+	width: 50px;
+	height: 50px;
+	z-index: 100;
 }
 
 .btn {
