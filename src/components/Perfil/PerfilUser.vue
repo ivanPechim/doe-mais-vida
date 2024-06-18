@@ -47,18 +47,13 @@
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			cadastro: {
-				name: ''
-			}
-		}
-	},
+export default {	
 	methods: {
 		volta() {
-			this.$router.push('/home');
-		},
+    if (this.$route.path == '/PerfilUser') {
+      this.$router.push('/Home');
+    }
+  },
 		goToPerfilEdit() {
 			this.$router.push('/perfilEdit');
 		}
