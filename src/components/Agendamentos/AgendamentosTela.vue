@@ -180,6 +180,10 @@ export default {
   const agendamento = {
     patientName: this.nome,
     appointmentDate: this.dataAgendamento,
+		cpf: this.cpf,
+    email: this.email,
+    birthDate: this.dataNascimento,
+    phoneNumber: this.telefone,
     hospital: {
       id: this.getHospitalId(this.selectedUnidade)
     }
