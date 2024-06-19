@@ -76,7 +76,7 @@ export default {
 			this.$router.push('/agendamentos');
 		},
 		infoUser() {
-			this.$router.push('/perfilUser');
+			this.$router.push('/');
 		},
 	}
 }

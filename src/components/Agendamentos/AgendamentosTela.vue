@@ -1,139 +1,132 @@
 <template>
-	<div class="fundo">
-		<div class="div-info-usuarios">
-			<button @click="voltaHome" class="button-volta">
-			</button>
-		</div>
-		<div class="div-botao-voltar">
-			<button @click="infoUser" class="button-infoUsuario">
-			</button>
-		</div>
+  <div class="fundo">
+    <div class="div-info-usuarios">
+      <button @click="voltaHome" class="button-volta">
+      </button>
+    </div>
+    <div class="div-botao-voltar">
+      <button @click="infoUser" class="button-infoUsuario">
+      </button>
+    </div>
     <div class="fundo_botao_requisitos">
       <div class="fundo_btn w-50 mb-5 p-3">
         <button @click="abreTelaRequisitos" id="botao_requsitos">Requisitos Básicos <br> para Doação</button>
       </div>
-      
+
       <div class="formulario">
-				<b-row>
-					<b-col class="text">
-						<b-form-group label="Município:">
-							<b-select v-model="selectedMunicipio" @change="onMunicipioChange" required>
-								<option value="">Inserir um município</option>
-								<option v-for="(value, key) in unidadesPorMunicipio" :key="key" :value="key">{{ formatMunicipio(key) }}</option>
-							</b-select>
-						</b-form-group>
-					</b-col>
+        <b-row>
+          <b-col class="text">
+            <b-form-group label="Município:">
+              <b-select v-model="selectedMunicipio" @change="onMunicipioChange" required>
+                <option value="">Inserir um município</option>
+                <option v-for="(value, key) in unidadesPorMunicipio" :key="key" :value="key">{{ formatMunicipio(key) }}
+                </option>
+              </b-select>
+            </b-form-group>
+          </b-col>
 
-					<b-col>
-						<b-form-group label="Unidade de Atendimento:">
-							<b-select v-model="selectedUnidade" required>
-								<option value="">Inserir uma unidade</option>
-								<option v-for="unidade in unidades" :key="unidade" :value="unidade">{{ unidade }}</option>
-							</b-select>
-						</b-form-group>
-					</b-col>
-				</b-row>
-
-				<b-row>
-					<b-col>
-						<b-form-group label="Data de Agendamento:">
-							<b-form-input type="date" v-model="dataAgendamento" required></b-form-input>
-						</b-form-group>
-					</b-col>
-					<b-col>
-						<b-form-group label="Horário de Atendimento:">
-							<b-select v-model="selectedHorario" required>
-								<option value="">Selecione um Horário</option>
-								<option v-for="horario in horarios" :key="horario" :value="horario">{{ horario }}</option>
-							</b-select>
-						</b-form-group>
-					</b-col>
-				</b-row>
-
-				<b-row>
-					<b-col>
-						<b-form-group label="Nome:">
-							<b-form-input type="text" v-model="nome" required></b-form-input>
-						</b-form-group>
-					</b-col>
-					<b-col>
-						<b-form-group label="CPF:">
-							<b-form-input type="text" v-model="cpf" required></b-form-input>
-						</b-form-group>
-					</b-col>
-				</b-row>
-
-				<b-row>
-					<b-col>
-						<b-form-group label="Email:">
-							<b-form-input type="email" v-model="email" required></b-form-input>
-						</b-form-group>
-					</b-col>
-					<b-col>
-						<b-form-group label="Data de nascimento:">
-							<b-form-input type="date" v-model="dataNascimento" required></b-form-input>
-						</b-form-group>
-					</b-col>
-				</b-row>
-
-				<b-row class="mb-4">
-					<b-col>
-						<b-form-group label="Telefone/Celular:">
-							<b-form-input type="tel" v-model="telefone" required></b-form-input>
-						</b-form-group>
-					</b-col>
-				</b-row>
+          <b-col>
+            <b-form-group label="Unidade de Atendimento:">
+              <b-select v-model="selectedUnidade" required>
+                <option value="">Inserir uma unidade</option>
+                <option v-for="unidade in unidades" :key="unidade" :value="unidade">{{ unidade }}</option>
+              </b-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
 
         <b-row>
           <b-col>
-						<b-button class="w-100 btn" @click="confirmarAgendamento">Confirmar Agendamento</b-button>
-					</b-col>
+            <b-form-group label="Data de Agendamento:">
+              <b-form-input type="date" v-model="dataAgendamento" required></b-form-input>
+            </b-form-group>
+          </b-col>
+          <b-col>
+            <b-form-group label="Horário de Atendimento:">
+              <b-select v-model="selectedHorario" required>
+                <option value="">Selecione um Horário</option>
+                <option v-for="horario in horarios" :key="horario" :value="horario">{{ horario }}</option>
+              </b-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <b-form-group label="Nome:">
+              <b-form-input type="text" v-model="nome" required></b-form-input>
+            </b-form-group>
+          </b-col>
+          <b-col>
+            <b-form-group label="CPF:">
+              <b-form-input type="text" v-model="cpf" required></b-form-input>
+            </b-form-group>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <b-form-group label="Email:">
+              <b-form-input type="email" v-model="email" required></b-form-input>
+            </b-form-group>
+          </b-col>
+          <b-col>
+            <b-form-group label="Data de nascimento:">
+              <b-form-input type="date" v-model="dataNascimento" required></b-form-input>
+            </b-form-group>
+          </b-col>
+        </b-row>
+
+        <b-row class="mb-4">
+          <b-col>
+            <b-form-group label="Telefone/Celular:">
+              <b-form-input type="tel" v-model="telefone" required></b-form-input>
+            </b-form-group>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <b-button class="w-100 btn" @click="confirmarAgendamento">Confirmar Agendamento</b-button>
+          </b-col>
         </b-row>
       </div>
     </div>
-		<b-modal
-      size="lg"
-      ref="modalDesenho"
-      hide-footer
-      no-close-on-backdrop
-    >
+    <b-modal size="lg" ref="modalDesenho" hide-footer no-close-on-backdrop>
       <b-container fluid class="d-flex justify-content-center">
-				<div class="background">
-					<b-row>
-						<b-col>
-							<img class="m-3" src="../../assets/logoVermelha.png" alt="Logo Doação">
-						</b-col>
-					</b-row>
-					<b-row>
-						<b-col>
-							<img class="m-3" src="../../assets/check.png" alt="Logo Doação">
-						</b-col>
-					</b-row>
-					<b-row>
-						<b-col class="text-center">
-							<h4><strong>Parabéns!</strong></h4>
-							<p>
-								O seu agendamento foi concluído com
-								sucesso! Estaremos te esperando no
-								lugar, data e horário marcados!
-							</p>
-							<p>
-								Você pode estar ajudando a salvar a
-								vida de uma pessoa! Estamos orgulhosos!
-							</p>
-						</b-col>
-					</b-row>
-					<b-row>
-						<b-col>
-							<b-button 
-								class="btnHome"
-								@click="voltaHome"
-								>
-								Voltar para a home
-							</b-button>
-						</b-col>
-					</b-row>
-				</div>
+        <div class="background">
+          <b-row>
+            <b-col>
+              <img class="m-3" src="../../assets/logoVermelha.png" alt="Logo Doação">
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <img class="m-3" src="../../assets/check.png" alt="Logo Doação">
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col class="text-center">
+              <h4><strong>Parabéns!</strong></h4>
+              <p>
+                O seu agendamento foi concluído com
+                sucesso! Estaremos te esperando no
+                lugar, data e horário marcados!
+              </p>
+              <p>
+                Você pode estar ajudando a salvar a
+                vida de uma pessoa! Estamos orgulhosos!
+              </p>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <b-button class="btnHome" @click="voltaHome">
+                Voltar para a home
+              </b-button>
+            </b-col>
+          </b-row>
+        </div>
       </b-container>
     </b-modal>
   </div>
@@ -177,44 +170,53 @@ export default {
       return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     },
     confirmarAgendamento() {
-  const agendamento = {
-    patientName: this.nome,
-    appointmentDate: this.dataAgendamento,
-		cpf: this.cpf,
-    email: this.email,
-    birthDate: this.dataNascimento,
-    phoneNumber: this.telefone,
-    hospital: {
-      id: this.getHospitalId(this.selectedUnidade)
-    }
-  };
+      if (!this.selectedMunicipio || !this.selectedUnidade || !this.dataAgendamento || !this.selectedHorario ||
+          !this.nome || !this.cpf || !this.email || !this.dataNascimento || !this.telefone) {
+        alert('Por favor, preencha todos os campos antes de confirmar o agendamento.');
+        return;
+      }
 
-  fetch('http://localhost:8090/appointment', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
+      const agendamento = {
+        patientName: this.nome,
+        appointmentDate: this.dataAgendamento,
+        cpf: this.cpf,
+        email: this.email,
+        birthDate: this.dataNascimento,
+        phoneNumber: this.telefone,
+        hospital: {
+          id: this.getHospitalId(this.selectedUnidade)
+        },
+        appointmentTime: `${this.dataAgendamento}T${this.selectedHorario}:00`,
+      };
+
+      console.log('Agendamento:', agendamento);
+
+      fetch('http://localhost:8090/appointment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(agendamento)
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Resposta da API:', data); // Log detalhado da resposta
+          if (data.id) { // Verificando se a resposta contém um ID ou qualquer campo significativo
+            this.$refs["modalDesenho"].show();
+          } else {
+            alert('Erro ao agendar: Resposta inesperada do servidor.');
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao agendar:', error); // Log detalhado do erro
+          alert('Erro ao agendar: ' + error.message);
+        });
     },
-    body: JSON.stringify(agendamento)
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Erro na requisição: ' + response.statusText);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Resposta da API:', data); // Log detalhado da resposta
-    if (data.id) { // Verificando se a resposta contém um ID ou qualquer campo significativo
-      this.$refs["modalDesenho"].show();
-    } else {
-      alert('Erro ao agendar: Resposta inesperada do servidor.');
-    }
-  })
-  .catch(error => {
-    console.error('Erro ao agendar:', error); // Log detalhado do erro
-    alert('Erro ao agendar: ' + error.message);
-  });
-},
     getHospitalId(unidade) {
       // Implementar lógica para obter o ID do hospital baseado no nome da unidade
       const hospitalMap = {
@@ -236,10 +238,10 @@ export default {
       this.$refs["modalDesenho"].hide();
     },
     voltaHome() {
-      this.$router.push('/home'); 
+      this.$router.push('/home');
     },
     infoUser() {
-      this.$router.push('/perfilUser'); 
+      this.$router.push('/perfilUser');
     },
     abreTelaRequisitos() {
       this.$router.push('/requisitos');
@@ -259,7 +261,7 @@ export default {
 
 .background {
   display: flex;
-  text-align: center !important; 
+  text-align: center !important;
   width: 60%;
   flex-direction: column
 }
@@ -329,7 +331,7 @@ export default {
 
 .fundo_btn {
   background-color: rgb(240, 84, 84);
-  border-radius: 10px; 
+  border-radius: 10px;
   display: flex;
   justify-content: center;
 }
@@ -338,8 +340,8 @@ export default {
   background-color: white;
   text-align: center;
   width: 75%;
-  color: red; 
-  font-size: 18px; 
-  border-radius: 50px; 
+  color: red;
+  font-size: 18px;
+  border-radius: 50px;
 }
 </style>
