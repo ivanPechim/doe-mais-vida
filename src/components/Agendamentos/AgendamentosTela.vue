@@ -177,33 +177,40 @@ export default {
       return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     },
     confirmarAgendamento() {
-      const agendamento = {
-        patientName: this.nome,
-        appointmentDate: this.dataAgendamento,
-        hospital: {
-          id: this.getHospitalId(this.selectedUnidade)
-        }
-      };
+  const agendamento = {
+    patientName: this.nome,
+    appointmentDate: this.dataAgendamento,
+    hospital: {
+      id: this.getHospitalId(this.selectedUnidade)
+    }
+  };
 
-      fetch('http://localhost:8090/appointment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(agendamento)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          this.$refs["modalDesenho"].show();
-        } else {
-          alert('Erro ao agendar: ' + data.message);
-        }
-      })
-      .catch(error => {
-        alert('Erro ao agendar: ' + error.message);
-      });
+  fetch('http://localhost:8090/appointment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
     },
+    body: JSON.stringify(agendamento)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição: ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Resposta da API:', data); // Log detalhado da resposta
+    if (data.id) { // Verificando se a resposta contém um ID ou qualquer campo significativo
+      this.$refs["modalDesenho"].show();
+    } else {
+      alert('Erro ao agendar: Resposta inesperada do servidor.');
+    }
+  })
+  .catch(error => {
+    console.error('Erro ao agendar:', error); // Log detalhado do erro
+    alert('Erro ao agendar: ' + error.message);
+  });
+},
     getHospitalId(unidade) {
       // Implementar lógica para obter o ID do hospital baseado no nome da unidade
       const hospitalMap = {
