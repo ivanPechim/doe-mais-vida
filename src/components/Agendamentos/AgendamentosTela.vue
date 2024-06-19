@@ -41,7 +41,6 @@
 						</b-form-group>
 					</b-col>
 					<b-col>
-
 						<b-form-group label="Horário de Atendimento:">
 							<b-select v-model="selectedHorario" required>
 								<option value="">Selecione um Horário</option>
@@ -54,7 +53,7 @@
 				<b-row>
 					<b-col>
 						<b-form-group label="Nome:">
-							<b-form-input  type="text" v-model="nome" required></b-form-input>
+							<b-form-input type="text" v-model="nome" required></b-form-input>
 						</b-form-group>
 					</b-col>
 					<b-col>
@@ -140,7 +139,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   data() {
@@ -155,25 +153,16 @@ export default {
       dataNascimento: '',
       telefone: '',
       unidadesPorMunicipio: {
-        "alem_da_paraiba": ["Unidade de Coleta Além da Paraíba"],
-        "belo_horizonte": ["Unidade de Coleta Hospital Júlia Kubitschek", "Hemocentro Belo Horizonte", "Unidade de Coleta - Estação BH"],
-        "betim": ["Unidade de Coleta Betim"],
-        "diamantina": ["Hemonúcleo Diamantina"],
-        "divinopolis": ["Hemonúcleo Divinópolis"],
-        "governador_valadares": ["Hemocentro Governador Valadares"],
-        "ituiutaba": ["Hemonúcleo Ituiutaba"],
-        "juiz_de_fora": ["Hemocentro Juiz de Fora"],
-        "manhuacu": ["Hemonúcleo Manhuaçu"],
-        "montes_claros": ["Hemocentro Montes Claros"],
-        "passos": ["Hemonúcleo Passos"],
-        "patos_de_minas": ["Hemonúcleo Patos de Minas"],
-        "ponte_nova": ["Hemonúcleo Ponte Nova"],
-        "pouso_alegre": ["Hemocentro Pouso Alegre"],
-        "pocos_de_caldas": ["Unidade de Coleta Poços de Caldas"],
-        "sete_lagoas": ["Hemonúcleo Sete Lagoas"],
-        "sao_joao_del_rei": ["Hemonúcleo São João Del Rei"],
-        "uberaba": ["Hemocentro Uberaba"],
-        "uberlandia": ["Hemocentro Uberlândia"]
+        "belo_horizonte": ["Hospital das Clínicas", "Hospital de Pronto Socorro João XXIII"],
+        "contagem": ["Hospital Municipal de Contagem"],
+        "betim": ["Hospital Regional de Betim"],
+        "santa_luzia": ["Hospital Municipal Madalena Calixto"],
+        "ribeirao_das_neves": ["Hospital São Judas Tadeu"],
+        "sabara": ["Hospital Nossa Senhora de Lourdes"],
+        "nova_lima": ["Hospital Nossa Senhora de Lourdes"],
+        "ibirite": ["Hospital e Maternidade Municipal de Ibirité"],
+        "pedro_leopoldo": ["Hospital e Maternidade Municipal de Pedro Leopoldo"],
+        "vespasiano": ["Hospital Risoleta Tolentino Neves"]
       },
       unidades: [],
       horarios: ["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "13:00", "13:40", "14:00", "14:40", "15:00", "15:40", "16:00", "16:40", "17:00"]
@@ -188,42 +177,80 @@ export default {
       return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     },
     confirmarAgendamento() {
-			this.$refs["modalDesenho"].show();
-      this.agendamentoConfirmado = true;
+      const agendamento = {
+        patientName: this.nome,
+        appointmentDate: this.dataAgendamento,
+        hospital: {
+          id: this.getHospitalId(this.selectedUnidade)
+        }
+      };
+
+      fetch('http://localhost:8090/appointment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(agendamento)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          this.$refs["modalDesenho"].show();
+        } else {
+          alert('Erro ao agendar: ' + data.message);
+        }
+      })
+      .catch(error => {
+        alert('Erro ao agendar: ' + error.message);
+      });
+    },
+    getHospitalId(unidade) {
+      // Implementar lógica para obter o ID do hospital baseado no nome da unidade
+      const hospitalMap = {
+        "Hospital das Clínicas": 1,
+        "Hospital de Pronto Socorro João XXIII": 2,
+        "Hospital Municipal de Contagem": 3,
+        "Hospital Regional de Betim": 4,
+        "Hospital Municipal Madalena Calixto": 5,
+        "Hospital São Judas Tadeu": 6,
+        "Hospital Nossa Senhora de Lourdes (Sabará)": 7,
+        "Hospital Nossa Senhora de Lourdes (Nova Lima)": 8,
+        "Hospital e Maternidade Municipal de Ibirité": 9,
+        "Hospital e Maternidade Municipal de Pedro Leopoldo": 10,
+        "Hospital Risoleta Tolentino Neves": 11
+      };
+      return hospitalMap[unidade] || 0;
     },
     hideModal() {
-			this.$refs["modalDesenho"].hide();
+      this.$refs["modalDesenho"].hide();
     },
     voltaHome() {
-			this.$router.push('/home'); 
-		},
-
+      this.$router.push('/home'); 
+    },
     infoUser() {
-			this.$router.push('/perfilUser'); 
-		},
-
-		abreTelaRequisitos() {
-			this.$router.push('/requisitos');
-		}
+      this.$router.push('/perfilUser'); 
+    },
+    abreTelaRequisitos() {
+      this.$router.push('/requisitos');
+    }
   }
 }
 </script>
 
 <style scoped>
-
 .btnHome {
-	background-color: #EE3C3C
+  background-color: #EE3C3C
 }
 
 .btnHome:hover {
-	background-color: #EE3C3C
+  background-color: #EE3C3C
 }
 
 .background {
-	display: flex;
-	text-align: center !important; 
-	width: 60%;
-	flex-direction: column
+  display: flex;
+  text-align: center !important; 
+  width: 60%;
+  flex-direction: column
 }
 
 .fundo {
@@ -236,47 +263,47 @@ export default {
 }
 
 .button-volta {
-	background-image: url("https://ucarecdn.com/04b02b27-4531-476b-951d-4df0d0ff1a74/-/preview/34x46/");
-	background-color: red;
-	background-repeat: no-repeat;
-	align-items: center;
-	position: absolute;
-	top: 0;
-	left: 0;
-	margin-top: 25px;
-	margin-left: 25px;
-	width: 50px;
-	height: 50px;
-	z-index: 100;
+  background-image: url("https://ucarecdn.com/04b02b27-4531-476b-951d-4df0d0ff1a74/-/preview/34x46/");
+  background-color: red;
+  background-repeat: no-repeat;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 25px;
+  margin-left: 25px;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
 }
 
 .button-infoUsuario {
-	background-image: url("../../assets/infoUsuario.png");
-	background-color: red;
-	background-repeat: no-repeat;
-	background-size: 50px;
+  background-image: url("../../assets/infoUsuario.png");
+  background-color: red;
+  background-repeat: no-repeat;
+  background-size: 50px;
 
-	position: absolute;
-	top: 0;
-	left: 0;
-	margin-top: 90px;
-	margin-left: 25px;
-	width: 50px;
-	height: 50px;
-	z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 90px;
+  margin-left: 25px;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
 }
 
 .btn {
-	background-color: #952626;
-	border: 0;
+  background-color: #952626;
+  border: 0;
 }
 
 .btn:hover {
-	background-color: #952626;
+  background-color: #952626;
 }
 
 .formulario {
-	justify-content: left;
+  justify-content: left;
 }
 
 .fundo_botao_requisitos {
@@ -290,19 +317,18 @@ export default {
 }
 
 .fundo_btn {
-	background-color: rgb(240, 84, 84);
-	border-radius: 10px; 
-	display: flex;
-	justify-content: center;
+  background-color: rgb(240, 84, 84);
+  border-radius: 10px; 
+  display: flex;
+  justify-content: center;
 }
 
 #botao_requsitos {
   background-color: white;
-	text-align: center;
-	width: 75%;
+  text-align: center;
+  width: 75%;
   color: red; 
   font-size: 18px; 
   border-radius: 50px; 
 }
-
 </style>
