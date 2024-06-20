@@ -163,7 +163,7 @@ export default {
 }
 
 .img {
-	width: 100%;
+	width: 80%;
 	height: auto;
 	border-radius: 40px 40px 0 0;
 }
@@ -175,5 +175,6 @@ export default {
 .imagem {
 	margin-right: 20px;
 	border-radius: 50%;
+	object-fit: cover;
 }
 </style>
