@@ -96,7 +96,7 @@ export default {
 				.then(response => {
 					console.log('Resposta completa: ', response);
 					if (response.status === 200) {
-						this.$router.push('/home');
+						return response.json();
 					} else if (response.status === 400) {
 						alert("Credenciais inválidas. Por favor, tente novamente.");
 					} else if (response.status === 500) {
@@ -105,6 +105,12 @@ export default {
 						throw new Error('Erro ao enviar solicitação: status ' + response.status);
 					}
 				})
+				.then(data => {
+					//Armazene o token de autenticação no localStorage
+					localStorage.setItem('authToken', data.token);
+					this.$router.push('/home')
+				}
+				)
 				.catch(error => {
 					console.log('Erro ao enviar solicitação: ', error);
 					// error.json().then(errorMessage => console.log('Mensagem de erro: ', errorMessage));

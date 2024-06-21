@@ -170,6 +170,15 @@ export default {
       return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     },
     confirmarAgendamento() {
+			//Verifique se o usuário está logado
+			const token = localStorage.getItem('authToken');
+			if (!token) {
+				//Redireciona para tela de login
+				this.$router.push('/');
+				return;
+			}
+
+			
       if (!this.selectedMunicipio || !this.selectedUnidade || !this.dataAgendamento || !this.selectedHorario ||
           !this.nome || !this.cpf || !this.email || !this.dataNascimento || !this.telefone) {
         alert('Por favor, preencha todos os campos antes de confirmar o agendamento.');
@@ -194,7 +203,8 @@ export default {
       fetch('http://localhost:8090/appointment', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+					'Authorization': `Brearer ${token}` //incluindo token no cabeçalho da autorização
         },
         body: JSON.stringify(agendamento)
       })
