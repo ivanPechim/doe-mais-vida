@@ -233,7 +233,7 @@ button {
 }
 
 .img-google {
-	background-image: url('https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihYheWWML1vouTa9zOFe3BNlyKE4c8d_1GU2PxIQJzFNlwdR9quoU9_ThjVTnZiDX8UvkJAD1rcXTD3MfEcfKeq6t-K65dBuEuo=w1920-h910');
+	background-image: url('https://ucarecdn.com/f4fb7244-ca6f-481b-a4f3-074a15884c17/-/preview/51x51/');
 	background-size: 50px;
 	background-position: left center;
 	background-repeat: no-repeat;
